@@ -1,0 +1,20 @@
+[2016-09-06 21:00:25] WeeChat 1.5 (compiled on May 11 2016 07:10:34)
+[2016-09-06 21:00:25] Reading configuration file sec.conf
+[2016-09-06 21:00:25] Reading configuration file weechat.conf
+[2016-09-06 21:00:25] Reading configuration file plugins.conf
+[2016-09-06 21:00:25] Reading configuration file charset.conf
+[2016-09-06 21:00:25] Reading configuration file exec.conf
+[2016-09-06 21:00:25] Reading configuration file trigger.conf
+[2016-09-06 21:00:25] Reading configuration file aspell.conf
+[2016-09-06 21:00:25] Reading configuration file alias.conf
+[2016-09-06 21:00:25] Reading configuration file xfer.conf
+[2016-09-06 21:00:25] Reading configuration file irc.conf
+[2016-09-06 21:00:25] Reading configuration file iset.conf
+[2016-09-06 21:00:25] Reading configuration file buffers.conf
+[2016-09-06 21:00:26] Reading configuration file autosort.conf
+[2016-09-06 21:00:26] Writing configuration file autosort.conf
+[2016-09-06 21:00:26] Reading configuration file script.conf
+[2016-09-06 21:00:26] irc: connecting to server chat.freenode.net/7070 (SSL)...
+[2016-09-06 21:00:26] irc: connecting to server irc.what-network.net/6697 (SSL)...
+[2016-09-06 21:00:26] irc: connecting to server 0.0.0.0/6667...
+[2016-09-06 21:00:26] irc: connecting to server irc.oftc.net/9999 (SSL)...

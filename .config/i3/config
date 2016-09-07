@@ -1,0 +1,246 @@
+#-------------#
+#  Autostart  #
+#-------------#
+
+# Fix Cursor
+exec xsetroot -cursor_name left_ptr
+
+# Set capslock button to escape
+exec setxkbmap -option caps:escape
+
+# Enable wallpaper
+exec sh ~/.fehbg
+
+# Get audio running early
+exec pulseaudio --start
+
+# Enable notifications via Dunst
+exec dunst
+exec mpd_notifyd
+
+# Compositing! Woo!
+exec compton
+
+#------------------#
+#  Global Options  #
+#------------------#
+
+# Set $mod to super
+set $mod Mod4
+
+#---------------------#
+#  Workspace Options  #
+#---------------------#
+
+# Set up workspaces by monitor
+workspace 1 output VGA-0
+workspace 2 output VGA-0
+workspace 3 output VGA-0
+workspace 4 output VGA-0
+workspace 5 output DVI-D-0
+workspace 6 output DVI-D-0
+workspace 7 output DVI-D-0
+workspace 8 output DVI-D-0
+workspace 9 output HDMI-0
+workspace A output HDMI-0
+workspace B output HDMI-0
+workspace C output HDMI-0
+
+# Keybinds for switching to workspaces
+bindsym $mod+Control+u workspace 1
+bindsym $mod+Control+i workspace 2
+bindsym $mod+Control+o workspace 3
+bindsym $mod+Control+p workspace 4
+bindsym $mod+u workspace 5
+bindsym $mod+i workspace 6
+bindsym $mod+o workspace 7
+bindsym $mod+p workspace 8
+bindsym $mod+Mod1+u workspace 9
+bindsym $mod+Mod1+i workspace A
+bindsym $mod+Mod1+o workspace B
+bindsym $mod+Mod1+p workspace C
+
+# move focused container to workspace
+bindsym $mod+Shift+Control+u move container to workspace 1
+bindsym $mod+Shift+Control+i move container to workspace 2
+bindsym $mod+Shift+Control+o move container to workspace 3
+bindsym $mod+Shift+Control+p move container to workspace 4
+bindsym $mod+Shift+u move container to workspace 5
+bindsym $mod+Shift+i move container to workspace 6
+bindsym $mod+Shift+o move container to workspace 7
+bindsym $mod+Shift+p move container to workspace 8
+bindsym $mod+Shift+Mod1+u move container to workspace 9
+bindsym $mod+Shift+Mod1+i move container to workspace A
+bindsym $mod+Shift+Mod1+o move container to workspace B
+bindsym $mod+Shift+Mod1+p move container to workspace C
+
+# Switch to previous/next workspace with super+[,]
+bindcode $mod+34 workspace prev
+bindcode $mod+35 workspace next
+
+#--------------#
+#  UI Options  #
+#--------------#
+
+# class                 border  backgr. text    indicator child_border
+client.focused 			#505050 #505050 #ffffff #505050   #505050
+client.focused_inactive #303030 #303030 #ffffff #303030   #303030
+client.unfocused        #303030 #303030 #999999 #303030   #303030
+
+
+# Font for window titles
+font pango:Roboto Mono for Powerline , FontAwesome 7
+
+# Draw borders for windows that try to decorate themselves (nautilus, steam)
+for_window [class="^.*"] border normal
+
+# Gaps. Woo.
+gaps inner 9
+
+#----------------------------#
+#  Program-specific Options  #
+#----------------------------#
+#for_window [title="Pathologic"]
+for_window [title="The Void" class="Game.exe"] floating disable, border none, fullscreen enable
+for_window [title="Pathologic" class="Game.exe"] floating disable, border none, fullscreen enable
+for_window [title="Openbox Logout"] floating enable, border none 
+
+#-------------#
+#  Statusbar  #
+#-------------#
+
+bar {
+
+	status_command i3blocks
+    tray_output none
+
+	colors {
+
+		background #202020
+		statusline #ffffff
+
+		focused_workspace  #404040 #505050 #505050
+		active_workspace   #0f0f0f #0f0f0f #0f0f0f
+		inactive_workspace #050505 #050505 #050505
+		urgent_workspace   #707070 #900000 #900000
+		binding_mode       #909090 #909090 #2d2d2d
+	}
+
+	font pango:Roboto Mono for Powerline 8
+
+}
+#---------------#
+#  Keybindings  #
+#---------------#
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec termite --exec tmux\ -2
+
+# Start dmenu
+#bindsym $mod+r exec j4-dmenu-desktop --dmenu="dmenu -fn Roboto\ Mono\ for\ Powerline:pixelsize=11 -i -b -p 'Launch' -nb '#202020' -nf '#dddddd' -sb '#505050' -sf '#ffffff'"
+bindsym $mod+r exec j4-dmenu-desktop --dmenu="rofi -dmenu -location 7 -fuzzy -font 'Roboto Mono for Powerline 7.5' -padding 10 -p 'Launch: ' -width 250 -i -lines 5"
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+c split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking 
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec oblogout
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Shift+h resize shrink width 5 px or 5 ppt
+        bindsym Shift+j resize grow height 5 px or 5 ppt
+        bindsym Shift+k resize shrink height 5 px or 5 ppt
+        bindsym Shift+l resize grow width 5 px or 5 ppt
+
+        bindsym Shift+Left resize shrink width 5 px or 5 ppt
+        bindsym Shift+Down resize grow height 5 px or 5 ppt
+        bindsym Shift+Up resize shrink height 5 px or 5 ppt
+        bindsym Shift+Right resize grow width 5 px or 5 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Control+r mode "resize"
+
+#--------------#
+#  Media Keys  #
+#--------------#
+
+bindsym XF86AudioNext exec mpc -q next
+bindsym XF86AudioPrev exec mpc -q prev
+bindsym XF86AudioStop exec mpc -q stop
+bindsym XF86AudioPlay exec mpc -q toggle
+
+bindsym XF86AudioRaiseVolume exec "amixer set Master playback 5%+ & amixer set PCM playback 5%+"
+bindsym XF86AudioLowerVolume exec "amixer set Master playback 5%- & amixer set PCM playback 5%-"
+
+bindsym XF86Launch7 exec "i3lock -c 000000"
+

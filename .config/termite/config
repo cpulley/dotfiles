@@ -1,0 +1,51 @@
+[options]
+font = Roboto Mono for Powerline 7
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+mouse_autohide = false
+allow_bold = true
+dynamic_title = true
+clickable_url = true
+browser = firefox
+
+[colors]
+
+# special
+foreground      = #bdc6c9
+foreground_bold = #bdc6c9
+cursor          = #bdc6c9
+background      = #1c1c1c
+
+# black
+color0  = #1c1c1c
+color8  = #404040
+
+# red
+color1  = #ce4435
+color9  = #ce4435
+
+# green
+color2  = #46a22c
+color10 = #46a22c
+
+# yellow
+color3  = #ffa000
+color11 = #ffa000
+
+# blue
+color4  = #0087af
+color12 = #0087af
+
+# magenta
+color5  = #ad5297
+color13 = #ad5297
+
+# cyan
+color6  = #28aea2
+color14 = #28aea2
+
+# white
+color7  = #bdc6c9
+color15 = #eaeff1
+
