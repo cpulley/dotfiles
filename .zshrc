@@ -61,6 +61,28 @@ alias cp='cp'
 alias dlpkg='ABSROOT=~/.build abs'
 alias aurpkg='cower -ft ~/.build/local -d'
 
+#######################################
+#   _____ _   _ _    _ _____   _____  #
+#  / ____| \ | | |  | |  __ \ / ____| #
+# | |  __|  \| | |  | | |__) | |  __  #
+# | | |_ | . ` | |  | |  ___/| | |_ | #
+# | |__| | |\  | |__| | |    | |__| | #
+#  \_____|_| \_|\____/|_|     \_____| #
+#                                     #
+#######################################                                    
+
+# Set SSH to use gpg-agent
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+fi
+
+# Set GPG TTY
+export GPG_TTY=$(tty)
+
+# Refresh gpg-agent tty in case user switches into an X session
+gpg-connect-agent updatestartuptty /bye >/dev/null
+
 ########################################
 #   _____                           _  #
 #  / ____|                         | | #
