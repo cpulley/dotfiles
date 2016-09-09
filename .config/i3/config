@@ -139,9 +139,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec termite --exec tmux\ -2
 
-# Start dmenu
-#bindsym $mod+r exec j4-dmenu-desktop --dmenu="dmenu -fn Roboto\ Mono\ for\ Powerline:pixelsize=11 -i -b -p 'Launch' -nb '#202020' -nf '#dddddd' -sb '#505050' -sf '#ffffff'"
+# Start rofi as app launcher or password manager
 bindsym $mod+r exec j4-dmenu-desktop --dmenu="rofi -dmenu -location 7 -fuzzy -font 'Roboto Mono for Powerline 7.5' -padding 10 -p 'Launch: ' -width 250 -i -lines 5"
+bindsym $mod+t exec ~/.scripts/rofipass -dmenu -location 7 -fuzzy -font 'Roboto Mono for Powerline 7.5' -padding 10 -p 'Pass: ' -width 250 -i -lines 5
 
 # kill focused window
 bindsym $mod+Shift+q kill
