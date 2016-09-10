@@ -112,4 +112,4 @@ PERL_MB_OPT="--install_base \"/home/cpulley/.perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/cpulley/.perl5"; export PERL_MM_OPT;
 
 # Pretty startup screen
-archey3
+clear && archey3
