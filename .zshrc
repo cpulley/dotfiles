@@ -57,9 +57,10 @@ alias rm='rm'
 alias mv='mv'
 alias cp='cp'
 
-# dlpkg and aurpkg to download repo and aur build files, respectively
-alias dlpkg='ABSROOT=~/.build abs'
-alias aurpkg='cower -ft ~/.build/local -d'
+# labs and laur to download repo and aur build files to ~/.build, respectively
+# (Local ABS, Local AUR)
+alias labs='ABSROOT=~/.build abs'
+alias laur='cower -ft ~/.build/local -d'
 
 #######################################
 #   _____ _   _ _    _ _____   _____  #
