@@ -89,7 +89,7 @@ client.unfocused        #303030 #303030 #999999 #303030   #303030
 
 
 # Font for window titles
-font pango:Roboto Mono for Powerline , FontAwesome 7
+font pango:Hack , FontAwesome 7
 
 # Draw borders for windows that try to decorate themselves (nautilus, steam)
 for_window [class="^.*"] border normal
@@ -126,7 +126,7 @@ bar {
 		binding_mode       #909090 #909090 #2d2d2d
 	}
 
-	font pango:Roboto Mono for Powerline 8
+	font pango:Hack 7
 
 }
 #---------------#

@@ -1,5 +1,5 @@
 [options]
-font = Roboto Mono for Powerline 7
+font = Hack 7
 scroll_on_output = false
 scroll_on_keystroke = true
 audible_bell = false
