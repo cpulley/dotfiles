@@ -30,8 +30,7 @@ source $ZSH/oh-my-zsh.sh
 #                                              #
 ################################################
 
-PATH="/home/cpulley/.local/bin${PATH:+:${PATH}}"; export PATH;
-. /home/cpulley/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+. /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # Properly align right prompt
 ZLE_RPROMPT_INDENT=0
