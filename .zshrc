@@ -62,6 +62,9 @@ alias cp='cp'
 alias labs='ABSROOT=~/.build abs'
 alias laur='cower -ft ~/.build/local -d'
 
+# Easily update the mirrorlist
+alias reflect='sudo reflector --threads 5 -p https -c US --sort score -n 10'
+
 #######################################
 #   _____ _   _ _    _ _____   _____  #
 #  / ____| \ | | |  | |  __ \ / ____| #
