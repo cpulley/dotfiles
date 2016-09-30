@@ -63,7 +63,7 @@ alias labs='ABSROOT=~/.build abs'
 alias laur='cower -ft ~/.build/local -d'
 
 # Easily update the mirrorlist
-alias reflect='sudo reflector --threads 5 -p https -c US --sort score -n 10'
+alias reflect='sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.prereflect && sudo reflector --threads 5 -p https -c US --sort score -n 10 --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist | grep -v \#\#'
 
 #######################################
 #   _____ _   _ _    _ _____   _____  #
