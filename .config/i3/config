@@ -103,7 +103,7 @@ gaps inner 9
 #for_window [title="Pathologic"]
 for_window [title="The Void" class="Game.exe"] floating disable, border none, fullscreen enable
 for_window [title="Pathologic" class="Game.exe"] floating disable, border none, fullscreen enable
-for_window [title="Morrowind" class="morrowind.exe"] floating disable, border none, fullscreen enable
+for_window [title="OpenMW" class="openmw"] floating disable, border none, fullscreen enable
 for_window [title="Openbox Logout"] floating enable, border none 
 
 #-------------#
