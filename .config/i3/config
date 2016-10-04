@@ -87,6 +87,10 @@ client.focused 			#707070 #707070 #ffffff #707070   #707070
 client.focused_inactive #242424 #242424 #ffffff #242424   #242424
 client.unfocused        #242424 #242424 #999999 #242424   #242424
 
+
+# Font for window titles
+font pango:Hack , FontAwesome 7
+
 # Draw borders for windows that try to decorate themselves (nautilus, steam)
 for_window [class="^.*"] border pixel 2
 
