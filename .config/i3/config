@@ -83,16 +83,12 @@ bindcode $mod+35 workspace next
 #--------------#
 
 # class                 border  backgr. text    indicator child_border
-client.focused 			#505050 #505050 #ffffff #505050   #505050
-client.focused_inactive #303030 #303030 #ffffff #303030   #303030
-client.unfocused        #303030 #303030 #999999 #303030   #303030
-
-
-# Font for window titles
-font pango:Hack , FontAwesome 7
+client.focused 			#707070 #707070 #ffffff #707070   #707070
+client.focused_inactive #242424 #242424 #ffffff #242424   #242424
+client.unfocused        #242424 #242424 #999999 #242424   #242424
 
 # Draw borders for windows that try to decorate themselves (nautilus, steam)
-for_window [class="^.*"] border normal
+for_window [class="^.*"] border pixel 2
 
 # Gaps. Woo.
 gaps inner 9
@@ -100,7 +96,6 @@ gaps inner 9
 #----------------------------#
 #  Program-specific Options  #
 #----------------------------#
-#for_window [title="Pathologic"]
 for_window [title="The Void" class="Game.exe"] floating disable, border none, fullscreen enable
 for_window [title="Pathologic" class="Game.exe"] floating disable, border none, fullscreen enable
 for_window [title="OpenMW" class="openmw"] floating disable, border none, fullscreen enable
@@ -127,7 +122,7 @@ bar {
 		binding_mode       #909090 #909090 #2d2d2d
 	}
 
-	font pango:Hack 7
+	font pango:Hack, FontAwesome 7
 
 }
 #---------------#
