@@ -108,7 +108,7 @@ for_window [title="Openbox Logout"] floating enable, border none
 bar {
 
 	status_command i3blocks
-    tray_output none
+    tray_output DVI-D-0
 
 	colors {
 

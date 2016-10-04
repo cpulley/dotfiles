@@ -1,0 +1,6 @@
+#!/bin/bash
+if mpc | grep playing > /dev/null
+then echo \|
+fi
+
+exit 0
