@@ -3,6 +3,9 @@ set animations
 set followhints=1
 colorscheme indigo-custom
 
-map <Space> <C-d>
-map <C-Space> <C-u>
-map <S-Space> <nop>
+nmap <Space> <C-d>
+nmap <C-Space> <C-u>
+nmap <S-Space> <nop>
+
+nmap s :bmarks 
+nmap S :bmarks<CR>
