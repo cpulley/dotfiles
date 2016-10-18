@@ -32,6 +32,8 @@ Plug 'scrooloose/nerdtree'             "
 Plug 'scrooloose/syntastic'            " Syntax coloring for many different filetypes
 Plug 'sheerun/vim-polyglot'            " Also syntax coloring for many different filetypes
 Plug 'sjl/gundo.vim'                   " Binary Tree style undo
+Plug 'vim-airline/vim-airline'         " Replacement for powerline
+Plug 'vim-airline/vim-airline-themes'  " Themes for airline
 Plug 'terryma/vim-multiple-cursors'    " Multiple cursors
 Plug 'tpope/vim-commentary'            " Quick commenting
 Plug 'tpope/vim-fugitive'              " Git wrapper
@@ -42,19 +44,6 @@ Plug 'bling/vim-bufferline'            "
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 filetype plugin indent on    " required
-
-"""""""""""""""""""""""""""""""""""""""""""""""""
-"   _____                       _ _             "
-"  |  __ \                     | (_)            "
-"  | |__) |____      _____ _ __| |_ _ __   ___  "
-"  |  ___/ _ \ \ /\ / / _ \ '__| | | '_ \ / _ \ "
-"  | |  | (_) \ V  V /  __/ |  | | | | | |  __/ "
-"  |_|   \___/ \_/\_/ \___|_|  |_|_|_| |_|\___| "
-"                                               "
-"""""""""""""""""""""""""""""""""""""""""""""""""                                                    
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
 
 """"""""""""""""""""""""""""""""""""""""
 "   _____                           _  "
@@ -194,6 +183,20 @@ map <NUL> <C-u>
 "                 |___/                 |_|                           "
 "                                                                     "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""
+" Airline "
+"""""""""""
+
+" Use fancy fonts
+let g:airline_powerline_fonts = 1
+
+" Use powerlineish theme
+let g:airline_theme='powerlineish'
+
+" Show buffers when only one tab is open
+" let g:airline#extensions#tabline#enabled = 1
+
 
 """"""""""""""
 " Easy-align "
