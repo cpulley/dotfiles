@@ -1,3 +1,12 @@
+source /home/cpulley/.antigen/antigen.zsh
+
+antigen bundle command-not-found
+antigen bundle git
+antigen bundle vi-mode
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+
 ###################################################
 #   ____  _       __  __         ______    _      #
 #  / __ \| |     |  \/  |       |___  /   | |     #
@@ -10,15 +19,15 @@
 ###################################################
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/cpulley/.oh-my-zsh
+# export ZSH=/home/cpulley/.oh-my-zsh
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(adb archlinux common-aliases cp git vi-mode wd)
+# plugins=(adb archlinux common-aliases cp git vi-mode wd)
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 ################################################
 #  _____                       _ _             #
@@ -49,13 +58,23 @@ precmd() { print " " }
 #                                    #
 ######################################
 
+# Following are ripped from oh-my-zsh's common-aliases plugin
+alias ls='ls --color'
+alias l='ls -lFh'     #size,show type,human readable
+alias la='ls -lAFh'   #long list,show almost all,show type,human readable
+alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
+alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
+alias ll='ls -l'      #long list
+alias ldot='ls -ld .*'
+alias lS='ls -1FSsh'
+alias lart='ls -1Fcart'
+alias lrt='ls -1Fcrt'
+
+alias grep='grep --color'
+alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
+
 # Replace less with vimpager
 alias less='vimpager'
-
-# I like common-aliases bindings, but /fuck/ interactive mode
-alias rm='rm'
-alias mv='mv'
-alias cp='cp'
 
 # labs and laur to download repo and aur build files to ~/.build, respectively
 # (Local ABS, Local AUR)
