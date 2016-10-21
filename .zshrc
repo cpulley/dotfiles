@@ -1,33 +1,24 @@
+###########################################
+#                 _   _                   #
+#     /\         | | (_)                  #
+#    /  \   _ __ | |_ _  __ _  ___ _ __   #
+#   / /\ \ | '_ \| __| |/ _` |/ _ \ '_ \  #
+#  / ____ \| | | | |_| | (_| |  __/ | | | #
+# /_/    \_\_| |_|\__|_|\__, |\___|_| |_| #
+#                       |___/             #
+#                                         #
+###########################################
 source /home/cpulley/.antigen/antigen.zsh
 
-antigen bundle command-not-found
+antigen bundle adb
+antigen bundle archlinux
 antigen bundle git
 antigen bundle vi-mode
 
-antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
-
-###################################################
-#   ____  _       __  __         ______    _      #
-#  / __ \| |     |  \/  |       |___  /   | |     #
-# | |  | | |__   | \  / |_   _     / / ___| |__   #
-# | |  | | '_ \  | |\/| | | | |   / / / __| '_ \  #
-# | |__| | | | | | |  | | |_| |  / /__\__ \ | | | #
-#  \____/|_| |_| |_|  |_|\__, | /_____|___/_| |_| #
-#                         __/ |                   #
-#                        |___/                    #
-###################################################
-
-# Path to your oh-my-zsh installation.
-# export ZSH=/home/cpulley/.oh-my-zsh
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-# plugins=(adb archlinux common-aliases cp git vi-mode wd)
-
-# source $ZSH/oh-my-zsh.sh
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-syntax-highlighting
 
 ################################################
 #  _____                       _ _             #
