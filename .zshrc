@@ -115,7 +115,7 @@ export EDITOR="vim"
 
 # Try to fix vim's 256color mode when tmux is running
 export TERM=xterm-termite
-[ -n "$TMUX" ] && export TERM=tmux
+[ -n "$TMUX" ] && export TERM=tmux-256color
 
 # Perl settings
 # Automatically added by cpan
