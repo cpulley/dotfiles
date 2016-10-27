@@ -15,10 +15,10 @@ antigen bundle archlinux
 antigen bundle git
 antigen bundle vi-mode
 
-antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle horosgrisa/autoenv
+
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle zsh-users/zsh-syntax-highlighting
 
 ################################################
 #  _____                       _ _             #
