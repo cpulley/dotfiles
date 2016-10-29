@@ -40,8 +40,6 @@ Plug 'tpope/vim-fugitive'              " Git wrapper
 Plug 'noah/vim256-color'               " A whooole bunch of colorschemes
 Plug 'bling/vim-bufferline'            " 
 
-
-" All of your Plugins must be added before the following line
 call plug#end()            " required
 filetype plugin indent on    " required
 
