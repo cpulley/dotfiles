@@ -76,6 +76,13 @@ set number
 " Syntax highlighting
 syntax on
 
+" Redraw a lil' faster
+set ttyfast
+
+" Enable mouse in all modes
+set mouse=a
+set ttymouse=xterm2
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 "  _    _ _____   _______                 _         "
 " | |  | |_   _| |__   __|               | |        "
