@@ -89,7 +89,7 @@ client.unfocused        #242424 #242424 #999999 #242424   #242424
 
 
 # Font for window titles
-font pango:Hack , FontAwesome 7
+font pango:Hack , FontAwesome 6.5
 
 # Draw borders for windows that try to decorate themselves (nautilus, steam)
 for_window [class="^.*"] border pixel 2
@@ -126,7 +126,7 @@ bar {
 		binding_mode       #909090 #909090 #2d2d2d
 	}
 
-	font pango:Hack, FontAwesome 7
+	font pango:Hack, FontAwesome 6.5
 
 }
 #---------------#
@@ -140,8 +140,8 @@ floating_modifier $mod
 bindsym $mod+Return exec termite --exec tmux\ -2
 
 # Start rofi as app launcher or password manager
-bindsym $mod+r exec j4-dmenu-desktop --dmenu="rofi -dmenu -location 7 -fuzzy -font 'Roboto Mono for Powerline 7.5' -padding 10 -p 'Launch: ' -width 250 -i -lines 5"
-bindsym $mod+t exec ~/.scripts/rofipass -dmenu -location 7 -fuzzy -font 'Roboto Mono for Powerline 7.5' -padding 10 -p 'Pass: ' -width 250 -i -lines 5
+bindsym $mod+r exec j4-dmenu-desktop --dmenu="rofi -dmenu -location 7 -fuzzy -font 'Hack 6.8' -padding 10 -p 'Launch: ' -width 250 -i -lines 5"
+bindsym $mod+t exec ~/.scripts/rofipass -dmenu -location 7 -fuzzy -font 'Hack 6.8' -padding 10 -p 'Pass: ' -width 250 -i -lines 5
 
 # kill focused window
 bindsym $mod+Shift+q kill
