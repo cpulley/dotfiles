@@ -1,5 +1,5 @@
 [global]
-    font = Roboto Mono for Powerline 8
+    font = Hack 8
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -64,7 +64,7 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "0x1+67-1"
+    geometry = "0x1+67-0"
     
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -133,7 +133,7 @@
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
     # automatically after a crash.
-    startup_notification = false
+    startup_notification = yes
     
     # dmenu path.
     dmenu = /usr/bin/dmenu -p dunst:
