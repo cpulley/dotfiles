@@ -1,5 +1,5 @@
 [options]
-font = Hack 7
+font = Hack 9
 scroll_on_output = false
 scroll_on_keystroke = true
 audible_bell = false
@@ -12,40 +12,39 @@ browser = firefox
 [colors]
 
 # special
-foreground      = #d1dbdf
-foreground_bold = #d1dbdf
-cursor          = #d1dbdf
-background      = #1c1c1c
+foreground      = #4d4d4c
+foreground_bold = #4d4d4c
+cursor          = #4d4d4c
+background      = #eeeeee
 
 # black
-color0  = #1c1c1c
-color8  = #505050
+color0  = #ededed
+color8  = #969694
 
 # red
-color1  = #ce4435
-color9  = #ce4435
+color1  = #d7005f
+color9  = #d7005f
 
 # green
-color2  = #46a22c
-color10 = #46a22c
+color2  = #718c00
+color10 = #718c00
 
 # yellow
-color3  = #ffa000
-color11 = #ffa000
+color3  = #d75f00
+color11 = #d75f00
 
 # blue
-color4  = #0087af
-color12 = #0087af
+color4  = #4271ae
+color12 = #4271ae
 
 # magenta
-color5  = #ad5297
-color13 = #ad5297
+color5  = #8959a8
+color13 = #8959a8
 
 # cyan
-color6  = #27b0d9
-color14 = #27b0d9
+color6  = #3e999f
+color14 = #3e999f
 
 # white
-color7  = #d1dbdf
-color15 = #eaeff1
-
+color7  = #4d4d4c
+color15 = #4d4d4c

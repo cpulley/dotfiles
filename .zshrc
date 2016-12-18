@@ -14,32 +14,16 @@ antigen bundle adb
 antigen bundle archlinux
 antigen bundle git
 antigen bundle vi-mode
-
 antigen bundle horosgrisa/autoenv
+
+antigen bundle frmendes/geometry
 
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-################################################
-#  _____                       _ _             #
-# |  __ \                     | (_)            #
-# | |__) |____      _____ _ __| |_ _ __   ___  #
-# |  ___/ _ \ \ /\ / / _ \ '__| | | '_ \ / _ \ #
-# | |  | (_) \ V  V /  __/ |  | | | | | |  __/ #
-# |_|   \___/ \_/\_/ \___|_|  |_|_|_| |_|\___| #
-#                                              #
-################################################
-
-. /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
-
-# Properly align right prompt
-ZLE_RPROMPT_INDENT=0
-precmd() { RPROMPT="" }
-
-# Print newline after each command
-precmd() { print " " }
+antigen apply
 
 ######################################
 #           _ _                      #
@@ -126,6 +110,3 @@ PERL5LIB="/home/cpulley/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5
 PERL_LOCAL_LIB_ROOT="/home/cpulley/.perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/cpulley/.perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/cpulley/.perl5"; export PERL_MM_OPT;
-
-# Pretty startup screen
-clear && archey3

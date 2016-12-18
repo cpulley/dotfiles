@@ -27,8 +27,9 @@ Plug 'junegunn/vim-easy-align'         " Easy alignment
 Plug 'airblade/vim-gitgutter'          " Show added/removed lines since last git commit
 Plug 'majutsushi/tagbar'               " 
 Plug 'mhinz/vim-startify' 			   " Fancy start menu
-Plug 'nathanaelkane/vim-indent-guides' " Shows levels of indention
+Plug 'yggdroot/indentline'             " Shows levels of indention
 Plug 'scrooloose/nerdtree'             " 
+Plug 'NLKNguyen/papercolor-theme'      " Bright theme
 Plug 'scrooloose/syntastic'            " Syntax coloring for many different filetypes
 Plug 'sheerun/vim-polyglot'            " Also syntax coloring for many different filetypes
 Plug 'sjl/gundo.vim'                   " Binary Tree style undo
@@ -37,8 +38,6 @@ Plug 'vim-airline/vim-airline-themes'  " Themes for airline
 Plug 'terryma/vim-multiple-cursors'    " Multiple cursors
 Plug 'tpope/vim-commentary'            " Quick commenting
 Plug 'tpope/vim-fugitive'              " Git wrapper
-Plug 'noah/vim256-color'               " A whooole bunch of colorschemes
-Plug 'bling/vim-bufferline'            " 
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -93,19 +92,19 @@ set ttymouse=xterm2
 
 " Better color, please.
  set t_Co=256
+ colorscheme PaperColor
 
 " Pretty theme setup.
 set laststatus=2
 set noshowmode
-set background=dark
+set background=light
 
 " Shorten indentions
 set tabstop=4
 
 
 " Gvim tweaks
-
-set guifont=Roboto\ Mono\ for\ Powerline\ 7
+set guifont=Hack\ 6
 set guioptions=aig
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -197,11 +196,7 @@ map <NUL> <C-u>
 let g:airline_powerline_fonts = 1
 
 " Use powerlineish theme
-let g:airline_theme='powerlineish'
-
-" Show buffers when only one tab is open
-" let g:airline#extensions#tabline#enabled = 1
-
+let g:airline_theme='papercolor'
 
 """"""""""""""
 " Easy-align "
