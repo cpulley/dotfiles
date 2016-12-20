@@ -84,7 +84,7 @@ color=#888888
 #
 # Checks weather through Yahoo
 [weather]
-interval=1600
+interval=300
 align=right
 
 [separator]
