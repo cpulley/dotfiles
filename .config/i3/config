@@ -83,19 +83,21 @@ bindcode $mod+35 workspace next
 #--------------#
 
 # class                 border  backgr. text    indicator child_border
-client.focused 			#707070 #707070 #ffffff #707070   #707070
-client.focused_inactive #242424 #242424 #ffffff #242424   #242424
-client.unfocused        #242424 #242424 #999999 #242424   #242424
+client.focused 			#888888 #888888 #ffffff #888888   #888888
+client.focused_inactive #ccccd0 #ccccd0 #4d4d4c #ccccd0   #ccccd0
+client.unfocused        #ccccd0 #ccccd0 #999999 #ccccd0   #ccccd0
+client.urgent           #d7005f #d7005f #4d4d4c #d7005f   #d7005f
 
 
 # Font for window titles
-font pango:Hack 6.5
+font pango:Hack 8
 
 # Draw borders for windows that try to decorate themselves (nautilus, steam)
 for_window [class="^.*"] border pixel 2
 
 # Gaps. Woo.
-gaps inner 9
+gaps inner 12
+gaps outer 5
 
 #----------------------------#
 #  Program-specific Options  #
@@ -116,14 +118,14 @@ bar {
 
 	colors {
 
-		background #202020
-		statusline #ffffff
+		background #eeeeee
+		statusline #4d4d4c
 
-		focused_workspace  #404040 #505050 #505050
-		active_workspace   #0f0f0f #0f0f0f #0f0f0f
-		inactive_workspace #050505 #050505 #050505
-		urgent_workspace   #707070 #900000 #900000
-		binding_mode       #909090 #909090 #2d2d2d
+		focused_workspace  #eeeeee #606060 #606060
+		active_workspace   #eeeeee #b0b0b0 #b0b0b0
+		inactive_workspace #eeeeee #b0b0b0 #b0b0b0
+		urgent_workspace   #eeeeee #d7005f #d7005f
+		binding_mode       #eeeeee #b0b0b0 #2d2d2d
 	}
 
 	font pango:Hack 6.5
