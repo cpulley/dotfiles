@@ -1,7 +1,7 @@
 set gui=none,tabs
 set animations
 set followhints=1
-colorscheme indigo-custom
+colorscheme indigo-white
 
 nmap <Space> <C-d>
 nmap <C-Space> <C-u>
