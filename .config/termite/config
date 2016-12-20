@@ -1,5 +1,5 @@
 [options]
-font = Hack 9
+font = Hack 7.5
 scroll_on_output = false
 scroll_on_keystroke = true
 audible_bell = false
