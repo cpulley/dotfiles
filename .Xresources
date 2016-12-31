@@ -1,0 +1,65 @@
+! ------------------------------------------------------------------------------
+! Terminal Colors
+! ------------------------------------------------------------------------------
+
+
+! special
+*.foreground:   #4d4d4c
+*.cursorColor:  #4d4d4c
+*.background:   #eeeeee
+
+! black
+*.color0:       #ededed
+*.color8:       #969694
+
+! red
+*.color1:       #d7005f
+*.color9:       #d7005f
+
+! green
+*.color2:       #718c00
+*.color10:      #718c00
+
+! yellow
+*.color3:       #d75f00
+*.color11:      #d75f00
+
+! blue
+*.color4:       #4271ae
+*.color12:      #4271ae
+
+! magenta
+*.color5:       #8959a8
+*.color13:      #8959a8
+
+! cyan
+*.color6:       #3e999f
+*.color14:      #3e999f
+
+! white
+*.color7:       #4d4d4c
+*.color15:      #4d4d4c
+
+
+! ------------------------------------------------------------------------------
+! ROFI Colors
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window:  #eeeeee, #fafafa, #eeeeee
+rofi.color-normal:  #eeeeee, #4d4d4d, #eeeeee, #767676, #eeeeee
+rofi.color-active:  #6f7382, #ffffff, #6f7382, #6f7382, #fdf6e3
+rofi.color-urgent:  #eeeeee, #d7005f, #eeeeee, #4d4d4d, #d7005f
+
+! ------------------------------------------------------------------------------
+! Urxvt Settings
+! ------------------------------------------------------------------------------
+
+URxvt.borderless: true
+URxvt.depth: 32
+URxvt.scrollBar: false
+URxvt.scrollTryOutput: false
+URxvt.scrollTtyKeypress: false
+URxvt.urgentOnBell: true
+URxvt.visualBell: false
+URxvt.font: xft:Hack:size=7:antialias=false:autohint=false
+URxvt.letterSpace: 0
