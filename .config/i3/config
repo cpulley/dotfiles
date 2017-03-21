@@ -3,7 +3,7 @@
 #-------------#
 
 # Fix Cursor
-exec xsetroot -cursor_name left_ptr
+exec sleep 1 && xsetroot -cursor_name left_ptr
 
 # Set capslock button to escape
 exec setxkbmap -option caps:escape
@@ -105,7 +105,8 @@ gaps outer 5
 for_window [title="The Void" class="Game.exe"] floating disable, border none, fullscreen enable
 for_window [title="Pathologic" class="Game.exe"] floating disable, border none, fullscreen enable
 for_window [title="OpenMW" class="openmw"] floating disable, border none, fullscreen enable
-for_window [title="Openbox Logout"] floating enable, border none 
+for_window [title="Openbox Logout"] floating disable, border none, fullscreen enable
+for_window [title="Minecraft"] floating enable, border none 
 
 #-------------#
 #  Statusbar  #
@@ -140,6 +141,9 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec termite --exec tmux\ -2
+
+# start file manager when you press $mod+\
+bindcode $mod+51 exec nautilus
 
 # Start rofi as app launcher or password manager
 bindsym $mod+r exec j4-dmenu-desktop --dmenu="rofi -dmenu -location 7 -fuzzy -font 'Hack 7' -padding 10 -p 'Launch: ' -width 250 -i -lines 5"
@@ -236,13 +240,27 @@ bindsym $mod+Control+r mode "resize"
 #  Media Keys  #
 #--------------#
 
-bindsym XF86AudioNext exec mpc -q next
-bindsym XF86AudioPrev exec mpc -q prev
-bindsym XF86AudioStop exec mpc -q stop
-bindsym XF86AudioPlay exec mpc -q toggle
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-bindsym XF86AudioRaiseVolume exec "amixer set Master playback 5%+ & amixer set PCM playback 5%+"
-bindsym XF86AudioLowerVolume exec "amixer set Master playback 5%- & amixer set PCM playback 5%-"
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioPlay exec playerctl play-pause
+
+# MPD controls
+bindsym $mod+XF86AudioNext exec mpc -q next
+bindsym $mod+XF86AudioPrev exec mpc -q prev
+bindsym $mod+XF86AudioStop exec mpc -q stop
+bindsym $mod+XF86AudioPlay exec mpc -q toggle
 
 bindsym XF86Launch7 exec "i3lock -c 000000"
 
+bindsym $mod+Control+Mod1+6 exec "bash ~/.scripts/togglemon.sh"
