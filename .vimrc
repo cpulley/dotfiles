@@ -104,7 +104,7 @@ set tabstop=4
 
 
 " Gvim tweaks
-set guifont=Hack\ 6
+set guifont=Hack\ 7
 set guioptions=aig
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
