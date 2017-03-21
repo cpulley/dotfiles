@@ -1,4 +1,4 @@
-set gui=none,tabs
+set gui=none,tabs,navigation
 set animations
 set followhints=1
 colorscheme indigo-white
