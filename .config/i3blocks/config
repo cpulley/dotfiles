@@ -76,14 +76,16 @@ label=
 #instance=/mnt/data
 interval=30
 
-[separator]
-interval=once
-color=#888888
+[disk]
+label=/
+instance=/media/sdb-media
+interval=30
 
 # Weather
 #
 # Checks weather through Yahoo
 [weather]
+label=|
 interval=300
 align=right
 
