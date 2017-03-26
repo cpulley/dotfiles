@@ -30,9 +30,12 @@ antigen bundle adb
 antigen bundle archlinux
 antigen bundle git
 antigen bundle vi-mode
-antigen bundle horosgrisa/autoenv
 
 antigen bundle frmendes/geometry
+
+antigen bundle jreese/zsh-titles
+
+antigen bundle horosgrisa/autoenv
 
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
