@@ -2,6 +2,11 @@
 
 if [ $# -eq 0 ];
 then echo "Usage: laur (package name)"
+	 echo
+	 echo "This script downloads files necessary to build a package from the AUR"
+   echo "to ~/.build/local, and deletes any existing folders from previous downloads."
+   echo "This is supposed to mirror the way abs works, instead of leaving behind"
+   echo "loose files from previous builds."
 	 exit 1
 fi
 

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if
+		xrandr | grep 1080x1920 > /dev/null
+then
+		xrandr --output VGA-0 --rotate normal && xrandr --output DVI-D-0 --off && xrandr --output HDMI-0 --off
+else
+		xrandr --output VGA-0 --rotate right && xrandr --output DVI-D-0 --auto --pos 1080x400 && xrandr --output HDMI-0 --auto --right-of DVI-D-0
+fi
