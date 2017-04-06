@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+if [ $# -ne 0 ];
+then target=$1
+else target=$(echo *.pkg.tar.xz)
+fi
+
+if [[ $target == *".pkg.tar.xz" ]]; then
+
+		pacaur -U $target
+
+		if [ $? -eq 0 ]
+		then cp $target ~/.build/pkgcache
+		fi
+
+		exit 0
+
+else
+		echo "This command requires a valid archlinux pkg file!"
+		exit 1
+fi
