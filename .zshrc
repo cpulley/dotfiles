@@ -75,13 +75,9 @@ alias less='vimpager'
 # labs and laur to download repo and aur build files to ~/.build, respectively
 # (Local ABS, Local AUR)
 alias labs='ABSROOT=~/.build abs'
-alias laur='cower -ft ~/.build/local -d'
-alias lins='pacaur -U ./*.pkg.tar.xz && cp *.pkg.tar.xz ~/.build/pkgcache/'
 
 # Easily update the mirrorlist
 alias reflect='sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.prereflect && sudo reflector --threads 5 -p https -c US --sort score -n 10 --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist | grep -v \#\#'
-
-alias togglemon='bash .scripts/togglemon.sh'
 
 #######################################
 #   _____ _   _ _    _ _____   _____  #
@@ -114,6 +110,9 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 #  \_____|\___|_| |_|\___|_|  \__,_|_| #
 #                                      #
 ########################################
+
+# Add ~/.scripts/ to path
+PATH="$PATH:$HOME/.scripts/"
 
 # Use vimpager instead of less
 export PAGER="vimpager"
