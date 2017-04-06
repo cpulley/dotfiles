@@ -1,9 +1,9 @@
 #!/bin/bash
 
 if [ $# -eq 0 ]; then
-  if [ $(ls | grep pkg.tar.xz) ]; then
-    echo "Installing:"
-    echo $(ls | grep pkg.tar.xz)
+  if [ $(ls | grep -c pkg.tar.xz) -gt 0 ]; then
+    echo "Preparing to install:"
+    ls -1 *pkg.tar.xz
     sudo pacman -U *.pkg.tar.xz
     if [ $? -eq 0 ]; then
       cp *.pkg.tar.xz ~/.build/pkgcache/
