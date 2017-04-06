@@ -263,4 +263,4 @@ bindsym $mod+XF86AudioPlay exec mpc -q toggle
 
 bindsym XF86Launch7 exec "i3lock -c 000000"
 
-bindsym $mod+Control+Mod1+6 exec "bash ~/.scripts/togglemon.sh"
+bindsym $mod+Control+Mod1+6 exec "bash ~/.scripts/togglemon"
