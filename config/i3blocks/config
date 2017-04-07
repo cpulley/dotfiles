@@ -30,13 +30,13 @@ separator=false
 separator_block_width=5
 markup=none
 
-# Super simple MPD script
+# Super simple playerctl script
 # If music is playing, shows current song/artist
-[mpd]
+[playerctl]
 label= 
 interval=2
 
-[mpdseparator]
+[playerctlsep]
 interval=2
 color=#888888
 # Volume indicator
