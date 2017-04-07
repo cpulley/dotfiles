@@ -26,10 +26,13 @@ export PROMPT_GEOMETRY_COLORIZE_ROOT=true
 ###########################################
 source /home/cpulley/.antigen/antigen.zsh
 
+antigen use oh-my-zsh
+
 antigen bundle adb
 antigen bundle archlinux
 antigen bundle git
 antigen bundle vi-mode
+antigen bundle wd
 
 antigen bundle frmendes/geometry
 
