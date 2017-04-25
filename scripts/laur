@@ -14,7 +14,7 @@ for PACKAGE in "$@"
 do
 		if [ $(cower -sb $PACKAGE | grep -c 'aur/'$PACKAGE'\ ') -eq 1 ]
 		then
-				echo ':: Removing ~/.build/local/'$PACKAGE
+				echo ':: Removing '$HOME'/.build/local/'$PACKAGE
 				rm -rf ~/.build/local/$PACKAGE
 				cower -ft ~/.build/local -d $PACKAGE
 		else
