@@ -17,8 +17,6 @@ call plug#begin('~/.vim/plugins')
 
 " let Vundle manage Vundle, required
 Plug 'Lokaltog/vim-easymotion'         " More precise jumping/searching
-Plug 'Raimondi/delimitMate'            " 
-Plug 'Shougo/unite.vim'                " Quick file browsing/editing
 Plug 'Yggdroot/indentLine'
 Plug 'christoomey/vim-tmux-navigator'  " Vim-aware tmux movement
 Plug 'ervandew/supertab'               " Easy completion
@@ -298,9 +296,3 @@ let g:multi_cursor_exit_from_insert_mode = 0
 """"""""""""""
 
 noremap <Leader>cd :NERDTree<cr>
-
-"""""""""
-" Unite "
-"""""""""
-
-nnoremap <silent> <leader><tab> :Unite file buffer<cr>
