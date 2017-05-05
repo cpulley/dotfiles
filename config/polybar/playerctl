@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+if  playerctl status | grep Playing > /dev/null 
+then echo '  '$(playerctl metadata artist && echo ' - ' && playerctl metadata title)
+else echo " "
+fi
+
+exit 0

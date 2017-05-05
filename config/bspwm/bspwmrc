@@ -1,0 +1,50 @@
+#! /bin/sh
+
+# Add wallpaper
+sh ~/.fehbg &
+sxhkd &
+
+# Fix Cursor
+xsetroot -cursor_name left_ptr &
+
+# Set capslock button to escape
+setxkbmap -option caps:escape &
+
+# Enable wallpaper
+sh ~/.fehbg & 
+
+# Get audio running early
+pulseaudio --start
+
+# Enable notifications via Dunst
+dunst & 
+mpd_notifyd &
+
+# Compositing! Woo!
+compton &
+
+polybar DVI-D-0 &
+polybar VGA-0 &
+polybar HDMI-0 &
+
+bspc config border_width        2
+bspc config window_gap         12
+
+bspc config split_ratio         0.52
+
+bspc config focus_follows_pointer true
+bspc config pointer_follows_monitor true
+
+bspc config borderless_monocle  true
+bspc config gapless_monocle     true
+
+bspc config normal_border_color \#E0E0E0
+bspc config active_border_color \#E0E0E0
+bspc config focused_border_color \#4D4D4C
+
+bspc monitor DVI-D-0 -d DVI
+bspc monitor HDMI-0 -d HDMI
+bspc monitor VGA-0 -d VGA
+
+sleep 2 & bspc config bottom_padding 20
+sleep 2 & bspc config top_padding 2
