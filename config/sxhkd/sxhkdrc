@@ -12,6 +12,10 @@ super + r
 super + e
 	~/.scripts/rofipass -dmenu -location 7 -fuzzy -font 'Hack 7' -padding 10 -p 'Pass: ' -width 250 -i -lines 5
 
+# file manager
+super + backslash
+	thunar
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -32,10 +36,6 @@ super + {_,shift + }q
 super + m
 	bspc desktop -l next
 
-# swap the current node and the biggest node
-super + g
-	bspc node -s biggest
-
 #
 # state/flags
 #
@@ -53,12 +53,12 @@ super + ctrl + {x,y,z}
 #
 
 # focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
+super + {_,shift + } {h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-# focus the next/previous desktop
-super + bracket{left,right}
-	bspc desktop -f {prev,next}
+# focus or swap the next/previous desktop
+super + {_,shift + } bracket{left,right}
+	bspc desktop {-f,_} -b {prev,next}
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
@@ -91,6 +91,10 @@ super + {shift,alt} + {u,i,o}
 super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
 
+# if the current node is automatic, send it to the last manual, otherwise pull the last leaf
+super + y
+	bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
+
 # preselect the ratio
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
@@ -109,11 +113,11 @@ super + ctrl + shift + space
 
 # expand the tiled space in the given direction
 super + alt + {h,j,k,l}
-	bspc node {@west -r -40,@south -r +40,@north -r -40,@east -r +40}
+	bspc node {@west -r -100,@south -r +100,@north -r -100,@east -r +100}
 
 # contract the tiled space in the given direction
 super + alt + shift + {h,j,k,l}
-	bspc node {@east -r -40,@north -r +40,@south -r -40,@west -r +40}
+	bspc node {@east -r -100,@north -r +100,@south -r -100,@west -r +100}
 
 # move a floating window
 super + {Left,Down,Up,Right}
