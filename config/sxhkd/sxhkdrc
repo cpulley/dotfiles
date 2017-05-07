@@ -14,7 +14,7 @@ super + e
 
 # file manager
 super + backslash
-	thunar
+	nemo
 
 # make sxhkd reload its configuration files:
 super + Escape
