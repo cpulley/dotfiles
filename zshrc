@@ -123,10 +123,6 @@ export PAGER="vimpager"
 # Use vim instead of nano
 export EDITOR="vim"
 
-# Try to fix vim's 256color mode when tmux is running
-export TERM=xterm-256color
-[ -n "$TMUX" ] && export TERM=tmux-256color
-
 # Perl settings
 # Automatically added by cpan
 PATH="/home/cpulley/.perl5/bin${PATH:+:${PATH}}"; export PATH;
