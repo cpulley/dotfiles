@@ -20,6 +20,16 @@ alert = #d7005f
 margin-top = 5
 margin-bottom = 5
 
+;---------------------------------------;
+; #     #  #####     #            ###   ;
+; #     # #     #   # #          #   #  ;
+; #     # #        #   #        #     # ;
+; #     # #  #### #     # ##### #     # ;
+;  #   #  #     # #######       #     # ;
+;   # #   #     # #     #        #   #  ;
+;    #     #####  #     #         ###   ;
+;---------------------------------------;
+
 [bar/VGA-0]
 monitor = ${env:MONITOR:VGA-0}
 width = 100%
@@ -46,7 +56,7 @@ font-1 = fontawesome:size=7:fontformat=truetype;1
 font-2 = siji:pixelsize=7;1
 
 modules-left = bspwm seperator xwindow
-modules-center = 
+modules-center =
 modules-right =  memory seperator fileprefix filesystem seperator weather seperator date seperator
 
 bottom = true
@@ -55,6 +65,16 @@ wm-restack = bspwm
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
+
+;-------------------------------------------------;
+; ######  #     # ###       ######          ###   ;
+; #     # #     #  #        #     #        #   #  ;
+; #     # #     #  #        #     #       #     # ;
+; #     # #     #  #  ##### #     # ##### #     # ;
+; #     #  #   #   #        #     #       #     # ;
+; #     #   # #    #        #     #        #   #  ;
+; ######     #    ###       ######          ###   ;
+;-------------------------------------------------;
 
 [bar/DVI-D-0]
 monitor = ${env:MONITOR:DVI-D-0}
@@ -95,6 +115,16 @@ wm-restack = bspwm
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
 
+;-------------------------------------------;
+; #     # ######  #     # ###         ###   ;
+; #     # #     # ##   ##  #         #   #  ;
+; #     # #     # # # # #  #        #     # ;
+; ####### #     # #  #  #  #  ##### #     # ;
+; #     # #     # #     #  #        #     # ;
+; #     # #     # #     #  #         #   #  ;
+; #     # ######  #     # ###         ###   ;
+;-------------------------------------------;
+
 [bar/HDMI-0]
 monitor = ${env:MONITOR:HDMI-0}
 width = 100%
@@ -121,7 +151,7 @@ font-1 = fontawesome:size=7:fontformat=truetype;1
 font-2 = siji:pixelsize=7;1
 
 modules-left = bspwm seperator xwindow
-modules-center = 
+modules-center =
 modules-right =  memory seperator fileprefix filesystem seperator weather seperator date seperator
 
 bottom = true
@@ -131,38 +161,15 @@ wm-restack = bspwm
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
 
-[module/playerctl]
-type = custom/script
-exec = ~/.config/polybar/playerctl
-interval = 1
-
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:45:...%
-
-[module/seperator]
-type = custom/text
-content = |
-content-padding = 0
-content-foreground = #AAAAAA
-
-[module/fileprefix]
-type = custom/text
-content = 
-content-padding = 0
-
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-mount-1 = /home
-mount-2 = /media/sdb-media
-
-label-mounted = %free%
-
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
+;---------------------------------------------------;
+; #     #                                           ;
+; ##   ##  ####  #####  #    # #      ######  ####  ;
+; # # # # #    # #    # #    # #      #      #      ;
+; #  #  # #    # #    # #    # #      #####   ####  ;
+; #     # #    # #    # #    # #      #           # ;
+; #     # #    # #    # #    # #      #      #    # ;
+; #     #  ####  #####   ####  ###### ######  ####  ;
+;---------------------------------------------------;
 
 [module/bspwm]
 type = internal/bspwm
@@ -184,12 +191,86 @@ label-empty = %name%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
+[module/seperator]
+type = custom/text
+content = |
+content-padding = 0
+content-foreground = #AAAAAA
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:45:...%
+
+[module/playerctl]
+type = custom/script
+exec = ~/.config/polybar/playerctl
+interval = 1
+
 [module/memory]
 type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 label = %gb_free%
+
+[module/fileprefix]
+; This is purely cosmetic, adds the icon prefix for filesystem
+type = custom/text
+content = 
+content-padding = 0
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+mount-1 = /home
+mount-2 = /media/sdb-media
+
+label-mounted = %free%
+
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/weather]
+type = custom/script
+interval = 10
+format = <label>
+format-prefix = " "
+exec = ~/.config/polybar/weather
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = " %m-%d"
+date-alt = " %Y-%m-%d"
+
+time = " %H:%M"
+time-alt = %H:%M:%S
+
+format-prefix =
+format-prefix-foreground = ${colors.foreground-alt}
+
+label = %date%   %time%
+
+;---------------------------------------------------;
+; #     #                                           ;
+; #     # #    # #    #  ####  ###### #####         ;
+; #     # ##   # #    # #      #      #    #        ;
+; #     # # #  # #    #  ####  #####  #    #        ;
+; #     # #  # # #    #      # #      #    #        ;
+; #     # #   ## #    # #    # #      #    #        ;
+;  #####  #    #  ####   ####  ###### #####         ;
+;                                                   ;
+; #     #                                           ;
+; ##   ##  ####  #####  #    # #      ######  ####  ;
+; # # # # #    # #    # #    # #      #      #      ;
+; #  #  # #    # #    # #    # #      #####   ####  ;
+; #     # #    # #    # #    # #      #           # ;
+; #     # #    # #    # #    # #      #      #    # ;
+; #     #  ####  #####   ####  ###### ######  ####  ;
+;---------------------------------------------------;
 
 [module/wlan]
 type = internal/network
@@ -203,22 +284,7 @@ type = internal/network
 interface = enp4s0
 interval = 3.0
 
-label-connected =  
-
-[module/date]
-type = internal/date
-interval = 5
-
-date = " %m-%d"
-date-alt = " %Y-%m-%d"
-
-time = " %H:%M"
-time-alt = %H:%M:%S
-
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-
-label = %date%   %time%
+label-connected = 
 
 [module/volume]
 type = internal/volume
@@ -295,12 +361,5 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
-
-[module/weather]
-type = custom/script
-interval = 10
-format = <label>
-format-prefix = " "
-exec = ~/.config/polybar/weather
 
 ; vim:ft=dosini
