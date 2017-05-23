@@ -9,7 +9,47 @@ unit_key = "F"
 
 weather = eval(str(urllib.request.urlopen("http://api.openweathermap.org/data/2.5/weather?q={}&APPID={}&units={}".format(city, api_key, units)).read())[2:-1])
 
+icon = weather["weather"][0]["icon"]
+
+# Using erikflowers/weather-icons by default
+if icon == "01d": # Clear Sky (Day) 
+    icon = ""
+if icon == "01n": # Clear Sky (Night) 
+    icon = ""
+if icon == "02d": # Few Clouds (Day) 
+    icon = ""
+if icon == "02n": # Few Clouds (Night) 
+    icon = ""
+if icon == "03d": # Scattered Clouds (Day) 
+    icon = ""
+if icon == "03n": # Scattered Clouds (Night) 
+    icon = ""
+if icon == "04d": # Broken Clouds (Day) 
+    icon = ""
+if icon == "04n": # Broken Clouds (Night) 
+    icon = ""
+if icon == "09d": # Shower Rain (Day) 
+    icon = ""
+if icon == "09n": # Shower Rain (Night) 
+    icon = ""
+if icon == "10d": # Rain (Day) 
+    icon = ""
+if icon == "10n": # Rain (Night) 
+    icon = ""
+if icon == "11d": # Thunderstorm (Day) 
+    icon = ""
+if icon == "11n": # Thunderstorm (Night) 
+    icon = ""
+if icon == "13d": # Snow (Day) 
+    icon = ""
+if icon == "13n": # Snow (Night) 
+    icon = ""
+if icon == "50d": # Mist (Day) 
+    icon = ""
+if icon == "50n": # Mist (Night) 
+    icon = ""
+
 info = weather["weather"][0]["description"].capitalize()
 temp = int(float(weather["main"]["temp"]))
 
-print("%s, %i °%s" % (info, temp, unit_key))
+print("%s  %s, %i °%s" % (icon, info, temp, unit_key))
