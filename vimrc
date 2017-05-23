@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugins')
 
 " let Vundle manage Vundle, required
 Plug 'Lokaltog/vim-easymotion'         " More precise jumping/searching
+Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
 Plug 'christoomey/vim-tmux-navigator'  " Vim-aware tmux movement
 Plug 'ervandew/supertab'               " Easy completion
