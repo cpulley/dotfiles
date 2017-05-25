@@ -77,7 +77,9 @@ set ttyfast
 
 " Enable mouse in all modes
 set mouse=a
-set ttymouse=xterm2
+if !has('nvim')
+	set ttymouse=xterm2
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 "  _    _ _____   _______                 _         "
@@ -90,8 +92,8 @@ set ttymouse=xterm2
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Better color, please.
- set t_Co=256
- colorscheme PaperColor
+set t_Co=256
+colorscheme PaperColor
 
 " Pretty theme setup.
 set laststatus=2
@@ -103,7 +105,7 @@ set tabstop=4
 
 
 " Gvim tweaks
-set guifont=Hack\ 7
+set guifont=Hack\ 7.5
 set guioptions=aig
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
