@@ -4,22 +4,53 @@ if [ $# -eq 0 ];
 then echo "Usage: laur (package name)"
 	 echo
 	 echo "This script downloads files necessary to build a package from the AUR"
-   echo "to ~/.build/local, and deletes any existing folders from previous downloads."
-   echo "This is supposed to mirror the way abs works, instead of leaving behind"
-   echo "loose files from previous builds."
+	 echo "to ~/.build, and deletes any existing folders from previous downloads."
+	 echo "This is supposed to mirror the way abs worked, instead of leaving behind"
+	 echo "loose files from previous builds."
+	 exit 0
+fi
+
+# Check if $HOME is set. If it's not, this script will start messing with root,
+# and I'd like to avoid that.
+if [ -o $HOME ]
+then echo "\$HOME is not set! Exiting..." 
 	 exit 1
 fi
+	
+
+
+# Create the build directory if it doesn't exist
+if [ ! -d $HOME/.build ]
+then
+	mkdir $HOME/.build
+	if [ $? -ne 0 ]
+	then
+		echo "Could not create '$HOME/.build/'! Exiting..."
+		exit 1
+	fi
+fi
+
+# First check cower to see if this is a valid package name.
+# This is a bit dirty, and if cower changes their output, it will break.
+# Then remove anything inside the directory, and download the PKGBUILD using cower.
 
 for PACKAGE in "$@"
 do
-		if [ $(cower -s $PACKAGE | grep -c 'aur/'$PACKAGE'\ ') -eq 1 ]
+	if [ $(cower -s $PACKAGE | grep -c 'aur/'$PACKAGE'\ ') -eq 1 ]
+	then
+
+		if [ -d $HOME/.build/$PACKAGE ] # Clean package directory if it exists
 		then
-				echo ':: Removing '$HOME'/.build/local/'$PACKAGE
-				rm -rf ~/.build/local/$PACKAGE
-				cower -ft ~/.build/local -d $PACKAGE
-		else
-				echo ':: Unable to find '\'$PACKAGE\''! Skipping...'
+			echo ':: Removing '$HOME'/.build/'$PACKAGE
+			rm -rf ~/.build/$PACKAGE
 		fi
+
+		cower -ft ~/.build/ -d $PACKAGE
+
+	else
+		echo ':: Unable to find '\'$PACKAGE\''! Skipping...'
+
+	fi
 done
 
 exit 0
