@@ -72,6 +72,9 @@ alias lrt='ls -1Fcrt'
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
+# Replace vim with nvim (muscle memory is hard to fix)
+alias vim='nvim'
+
 # Replace less with vimpager
 alias less='vimpager'
 
