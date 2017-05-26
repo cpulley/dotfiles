@@ -78,10 +78,6 @@ alias vim='nvim'
 # Replace less with vimpager
 alias less='vimpager'
 
-# labs and laur to download repo and aur build files to ~/.build, respectively
-# (Local ABS, Local AUR)
-alias labs='ABSROOT=~/.build abs'
-
 # Easily update the mirrorlist
 alias reflect='sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.prereflect && sudo reflector --threads 5 -p https -c US --sort score -n 10 --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist | grep -v \#\#'
 
