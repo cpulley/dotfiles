@@ -53,6 +53,6 @@ do
 	fi
 done
 
-cd -
+cd - > /dev/null
 
 exit 0
