@@ -49,7 +49,6 @@ do
 
 	else
 		echo ':: Unable to find '\'$PACKAGE\''! Skipping...'
-
 	fi
 done
 
