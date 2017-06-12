@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	alacritty
+	termite --exec tmux
 
 # program launcher
 super + r
