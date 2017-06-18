@@ -47,5 +47,5 @@ bspc monitor DVI-D-0 -d DVI
 bspc monitor HDMI-0 -d HDMI
 bspc monitor VGA-0 -d VGA
 
-sleep 2 & bspc config bottom_padding 20
-sleep 2 & bspc config top_padding 2
+sleep 3 & bspc config bottom_padding 20
+sleep 3 & bspc config top_padding 2
