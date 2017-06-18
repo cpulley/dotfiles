@@ -65,13 +65,12 @@ rofi.color-urgent:  #eeeeee, #d7005f, #eeeeee, #4d4d4d, #d7005f
 ! ------------------------------------------------------------------------------
 
 URxvt.borderless: true
-URxvt.depth: 32
 URxvt.scrollBar: false
 URxvt.scrollTryOutput: false
 URxvt.scrollTtyKeypress: false
 URxvt.urgentOnBell: true
 URxvt.visualBell: false
-URxvt.font: xft:Hack:size=7:antialias=false:autohint=false
+URxvt.font: xft:Knack Nerd Font:antialias=true:pixelsize=9
 URxvt.letterSpace: 0
 
 ! ------------------------------------------------------------------------------
