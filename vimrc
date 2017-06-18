@@ -16,27 +16,26 @@ filetype off                  " required
 call plug#begin('~/.vim/plugins')
 
 " let Vundle manage Vundle, required
-Plug 'Lokaltog/vim-easymotion'         " More precise jumping/searching
-Plug 'Raimondi/delimitMate'
-Plug 'Yggdroot/indentLine'
-Plug 'christoomey/vim-tmux-navigator'  " Vim-aware tmux movement
-Plug 'ervandew/supertab'               " Easy completion
-Plug 'jistr/vim-nerdtree-tabs'         " 
-Plug 'junegunn/vim-easy-align'         " Easy alignment
-Plug 'airblade/vim-gitgutter'          " Show added/removed lines since last git commit
-Plug 'majutsushi/tagbar'               " 
-Plug 'mhinz/vim-startify' 			   " Fancy start menu
+Plug 'Raimondi/delimitMate'            " Automated closing of parentheses/quotations
+Plug 'sjl/gundo.vim'                   " Binary Tree style undo
 Plug 'yggdroot/indentline'             " Shows levels of indention
-Plug 'scrooloose/nerdtree'             " 
+Plug 'scrooloose/nerdtree'             " File browser
+Plug 'ervandew/supertab'               " Easy completion
+Plug 'majutsushi/tagbar'               " Shows tags, ordered by scope, in a pane. (UNCONFIGURED)
 Plug 'NLKNguyen/papercolor-theme'      " Bright theme
 Plug 'scrooloose/syntastic'            " Syntax coloring for many different filetypes
-Plug 'sheerun/vim-polyglot'            " Also syntax coloring for many different filetypes
-Plug 'sjl/gundo.vim'                   " Binary Tree style undo
 Plug 'vim-airline/vim-airline'         " Replacement for powerline
 Plug 'vim-airline/vim-airline-themes'  " Themes for airline
-Plug 'terryma/vim-multiple-cursors'    " Multiple cursors
 Plug 'tpope/vim-commentary'            " Quick commenting
+Plug 'junegunn/vim-easy-align'         " Easy alignment
+Plug 'Lokaltog/vim-easymotion'         " More precise jumping/searching
 Plug 'tpope/vim-fugitive'              " Git wrapper
+Plug 'airblade/vim-gitgutter'          " Show added/removed lines since last git commit
+Plug 'terryma/vim-multiple-cursors'    " Multiple cursors
+Plug 'jistr/vim-nerdtree-tabs'         " Keep same NERDTree pane between tabs
+Plug 'sheerun/vim-polyglot'            " Also syntax coloring for many different filetypes
+Plug 'mhinz/vim-startify' 			   " Fancy start menu
+Plug 'christoomey/vim-tmux-navigator'  " Vim-aware tmux movement
 
 call plug#end()            " required
 filetype plugin indent on    " required
