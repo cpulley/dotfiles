@@ -29,12 +29,14 @@ Plug 'vim-airline/vim-airline-themes'  " Themes for airline
 Plug 'tpope/vim-commentary'            " Quick commenting
 Plug 'junegunn/vim-easy-align'         " Easy alignment
 Plug 'Lokaltog/vim-easymotion'         " More precise jumping/searching
+Plug 'fadein/vim-FIGlet'               " Quick ascii art
 Plug 'tpope/vim-fugitive'              " Git wrapper
 Plug 'airblade/vim-gitgutter'          " Show added/removed lines since last git commit
 Plug 'terryma/vim-multiple-cursors'    " Multiple cursors
 Plug 'jistr/vim-nerdtree-tabs'         " Keep same NERDTree pane between tabs
 Plug 'sheerun/vim-polyglot'            " Also syntax coloring for many different filetypes
 Plug 'mhinz/vim-startify' 			   " Fancy start menu
+Plug 'tpope/vim-surround'              " Quick commands to surround words/lines
 Plug 'christoomey/vim-tmux-navigator'  " Vim-aware tmux movement
 
 call plug#end()            " required
