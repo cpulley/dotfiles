@@ -8,9 +8,9 @@ super + Return
 
 # program launcher
 super + r
-	j4-dmenu-desktop --no-generic --dmenu="rofi -dmenu -location 7 -fuzzy -font 'Hack 7' -padding 10 -p 'Launch: ' -width 250 -i -lines 5"
+	j4-dmenu-desktop --no-generic --dmenu="rofi -dmenu -location 7 -fuzzy -font 'Hack 6.5' -padding 10 -p 'Launch: ' -width 250 -i -lines 5"
 super + e
-	~/.scripts/rofipass -dmenu -location 7 -fuzzy -font 'Hack 7' -padding 10 -p 'Pass: ' -width 250 -i -lines 5
+	~/.scripts/rofipass -dmenu -location 7 -fuzzy -font 'Hack 6.5' -padding 10 -p 'Pass: ' -width 250 -i -lines 5
 
 # file manager
 super + backslash
