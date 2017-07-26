@@ -5,7 +5,7 @@ DMENU_NB="#34322E"
 DMENU_SF="#F6F9FF"
 DMENU_SB="#5C5955"
 
-DESKTOP_NAME=`bspc wm -d | jshon -e monitors -a -e desktops -a -e name -u | rofi -dmenu -location 7 -font 'Hack 7' -padding 10 -p 'Desktop: ' -width 250 -i -lines 5`
+DESKTOP_NAME=`bspc wm -d | jshon -e monitors -a -e desktops -a -e name -u | rofi -dmenu -location 7 -font 'Hack 6.5' -padding 10 -p 'Desktop: ' -width 250 -i -lines 5`
 
 if [ -z $DESKTOP_NAME ]; then
     exit 0
