@@ -75,14 +75,14 @@ alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 # Replace vim with nvim (muscle memory is hard to fix)
 alias vim='nvim'
 
-# Replace less with vimpager
-alias less='vimpager'
-
 # Easily update the mirrorlist
 alias reflect='sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.prereflect && sudo reflector --threads 5 -p https -c US --sort score -n 10 --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist | grep -v \#\#'
 
 # Use pacmatic as wrapper for pacaur
-alias up='pacman_program="pacaur" pacmatic'
+alias up='pacman_program="pacaur" pacmatic -Syu && sudo paccache -r -k 2'
+
+# Newsbeuter has a weird name, let's forget it with aliases.
+alias news='newsbeuter'
 
 ########################################
 #   _____                           _  #
@@ -96,9 +96,6 @@ alias up='pacman_program="pacaur" pacmatic'
 
 # Add ~/.scripts/ to path
 PATH="$PATH:$HOME/.scripts/"
-
-# Use vimpager instead of less
-export PAGER="vimpager"
 
 # Use vim instead of nano
 export EDITOR="vim"
