@@ -33,9 +33,13 @@ mpd_notifyd &
 # Compositing! Woo!
 compton &
 
+# These should only launch on desktop
 polybar DVI-D-0 &
 polybar HDMI-0 &
 polybar VGA-0 &
+
+# This should only launch on laptop
+polybar LVDS1 &
 
 ########################################### 
 #   _____      _   _   _                  #
@@ -67,6 +71,7 @@ bspc config presel_feedback_color \#999999
 bspc monitor DVI-D-0 -d DVI
 bspc monitor HDMI-0 -d HDMI
 bspc monitor VGA-0 -d VGA
+bspc monitor LVDS1 -d LVDS1
 
 bspc config bottom_padding 20
 bspc config top_padding 2
