@@ -124,7 +124,7 @@ super + {Left,Down,Up,Right}
 	xdo move {-x -20,-y +20,-y -20,-x +20}
 
 #
-# media hotkeys
+# extra hotkeys
 #
 
 XF86AudioPrev + {_,super}
@@ -139,11 +139,8 @@ XF86AudioStop + {_,super}
 XF86AudioPlay + {_,super}
     {playerctl play-pause,mpc -q toggle}
 
-XF86AudioRaiseVolume
-    amixer set Master playback 5%+ & amixer set PCM playback 5%+
+{XF86AudioRaiseVolume,XF86AudioLowerVolume,XF86AudioMute}
+    pamixer {-i 5,-d 5,-t}
 
-XF86AudioLowerVolume
-    amixer set Master playback 5%- & amixer set PCM playback 5%-
-
-XF86Launch7
-    i3lock -c 000000
+{XF86MonBrightnessUp, XF86MonBrightnessDown}
+    xbacklight {-inc,-dec} 10
