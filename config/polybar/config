@@ -298,7 +298,7 @@ interval = 3.0
 
 label-connected =  %essid%
 
-[module/wlp0s20f0u12]
+[module/wlp2s0]
 type = internal/network
 interface = wlp2s0
 interval = 3.0
