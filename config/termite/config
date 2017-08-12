@@ -7,7 +7,7 @@ mouse_autohide = false
 allow_bold = true
 dynamic_title = true
 clickable_url = true
-browser = firefox
+browser = qutebrowser
 
 [colors]
 
