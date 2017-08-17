@@ -58,7 +58,7 @@ antigen apply
 ######################################
 
 # Following are ripped from oh-my-zsh's common-aliases plugin
-alias ls='ls --color'
+alias ls='ls --color --time-style long-iso'
 alias l='ls -lFh'     #size,show type,human readable
 alias la='ls -lAFh'   #long list,show almost all,show type,human readable
 alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
