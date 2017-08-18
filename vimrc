@@ -12,32 +12,30 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
+" set the runtime path to include Plug and initialize
 call plug#begin('~/.vim/plugins')
 
-" let Vundle manage Vundle, required
-Plug 'Raimondi/delimitMate'            " Automated closing of parentheses/quotations
-Plug 'sjl/gundo.vim'                   " Binary Tree style undo
-Plug 'yggdroot/indentline'             " Shows levels of indention
-Plug 'scrooloose/nerdtree'             " File browser
-Plug 'ervandew/supertab'               " Easy completion
-Plug 'majutsushi/tagbar'               " Shows tags, ordered by scope, in a pane. (UNCONFIGURED)
-Plug 'NLKNguyen/papercolor-theme'      " Bright theme
-Plug 'scrooloose/syntastic'            " Syntax coloring for many different filetypes
-Plug 'vim-airline/vim-airline'         " Replacement for powerline
-Plug 'vim-airline/vim-airline-themes'  " Themes for airline
-Plug 'tpope/vim-commentary'            " Quick commenting
-Plug 'junegunn/vim-easy-align'         " Easy alignment
-Plug 'Lokaltog/vim-easymotion'         " More precise jumping/searching
-Plug 'fadein/vim-FIGlet'               " Quick ascii art
-Plug 'tpope/vim-fugitive'              " Git wrapper
-Plug 'airblade/vim-gitgutter'          " Show added/removed lines since last git commit
-Plug 'terryma/vim-multiple-cursors'    " Multiple cursors
-Plug 'jistr/vim-nerdtree-tabs'         " Keep same NERDTree pane between tabs
-Plug 'sheerun/vim-polyglot'            " Also syntax coloring for many different filetypes
-Plug 'mhinz/vim-startify' 			   " Fancy start menu
-Plug 'tpope/vim-surround'              " Quick commands to surround words/lines
-Plug 'christoomey/vim-tmux-navigator'  " Vim-aware tmux movement
+Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy finding for files/buffers/etc
+Plug 'Raimondi/delimitMate'           " Automated closing of parentheses/quotations
+Plug 'yggdroot/indentline'            " Shows levels of indention
+Plug 'scrooloose/nerdtree'            " File browser
+Plug 'roxma/nvim-completion-manager'  " Quick and easy completion
+Plug 'majutsushi/tagbar'              " Shows tags, ordered by scope, in a pane. (UNCONFIGURED)
+Plug 'NLKNguyen/papercolor-theme'     " Bright theme
+Plug 'scrooloose/syntastic'           " Syntax coloring for many different filetypes
+Plug 'godlygeek/tabular'              " Simple but extensible alignment
+Plug 'vim-airline/vim-airline'        " Replacement for powerline
+Plug 'vim-airline/vim-airline-themes' " Themes for airline
+Plug 'tpope/vim-commentary'           " Quick commenting
+Plug 'fadein/vim-FIGlet'              " Quick ascii art
+Plug 'tpope/vim-fugitive'             " Git wrapper
+Plug 'airblade/vim-gitgutter'         " Show added/removed lines since last git commit
+Plug 'terryma/vim-multiple-cursors'   " Multiple cursors
+Plug 'sheerun/vim-polyglot'           " Also syntax coloring for many different filetypes
+Plug 'mhinz/vim-startify'             " Fancy start menu
+Plug 'tpope/vim-surround'             " Quick commands to surround words/lines
+Plug 'christoomey/vim-tmux-navigator' " Vim-aware tmux movement
+Plug 'vimwiki/vimwiki'                " Personal wiki, mostly for notes.
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -102,8 +100,7 @@ set noshowmode
 set background=light
 
 " Shorten indentions
-set tabstop=4
-
+set tabstop=2
 
 " Gvim tweaks
 set guifont=Hack\ 7.5
@@ -167,6 +164,10 @@ map <leader>tn :tabnew<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
 
+" Different keybinds for moving through tabs
+map <silent> J :tabnext<cr>
+map <silent> K :tabprev<cr>
+
 " Yank and paste use clipboard instead of vim buffer
 " This will not work with minimal vim!
 map <leader>y "+y
@@ -195,57 +196,13 @@ map <NUL> <C-u>
 """""""""""
 
 " Use fancy fonts
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 
 " Use powerlineish theme
 let g:airline_theme='papercolor'
 
-""""""""""""""
-" Easy-align "
-""""""""""""""
-
-nmap <Leader>ea <Plug>(EasyAlign)
-xmap <Leader>ea <Plug>(EasyAlign)
-
-""""""""""""""
-" Easymotion "
-""""""""""""""
-
-" Disable default mappings
-let g:EasyMotion_do_mapping = 0 
-
-" This makes easymotion use <leader> instead of <leader><leader>
-map <Leader> <Plug>(easymotion-prefix)
-
-" Bi-directional find motion
-nmap f <Plug>(easymotion-s2)
-
-" JK motions: Line motions
-map <leader>j <Plug>(easymotion-j)
-map <leader>k <Plug>(easymotion-k)
-
-" Also, let's just replace the default vim search with easymotion
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-
-" Intelligent case sensitivity in easymotion
-" v = v & V, but V only = V
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_use_smartsign_us = 1
-
-"""""""""
-" Gundo "
-"""""""""
-
-" Session version control / smart undo
-nnoremap <leader>u :GundoToggle<CR>
-
-" Set some Gundo asthetics
-let g:gundo_width = 80
-let g:gundo_preview_height = 15
-let g:gundo_right = 1
-let g:gundo_help = 0
-let g:gundo_close_on_revert = 1
+" Enable shiny tab/bufferline
+let g:airline#extensions#tabline#enabled = 1
 
 """"""""""""
 " Startify "
@@ -268,6 +225,11 @@ let g:startify_custom_header = [
 						\"        'V/'  /##//##//##//###/ 		",
 						\"                 ++ 					",
 						\]
+
+"""""""""""
+" Tabular "
+"""""""""""
+noremap <leader>a :Tabularize /
 
 """""""""""""""""""""""""""
 " Tmux Navigator Bindings "
@@ -300,3 +262,9 @@ let g:multi_cursor_exit_from_insert_mode = 0
 """"""""""""""
 
 noremap <Leader>cd :NERDTree<cr>
+
+""""""""""""
+" Vim Wiki "
+""""""""""""
+
+let g:vimwiki_list = [{'path': '~/.vimwiki', 'path_html': '~/.vimwiki/html'}]
