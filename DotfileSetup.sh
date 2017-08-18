@@ -106,4 +106,32 @@ do
   ln -s $dfp/config/$FILENAME $XDG_CONFIG_HOME/$FILENAME
 done
 
+
+echo 
+read -r -p "Would you like to install the plugin manager (antigen) for zsh? [y/N] " responsezsh
+responsezsh=${responsezsh,,} # to lower case
+if [[ $responsezsh =~ ^(yes|y)$ ]]; then
+    git clone https://github.com/zsh-users/antigen.git "$HOME/.antigen"
+    echo "Open or reopen zsh to finish installation!"
+fi
+
+echo
+read -r -p "Would you like to install the plugin manager (tpm) for tmux? [y/N] " responsetmux
+responsetmux=${responsetmux,,} # to lower case
+if [[ $responsetmux =~ ^(yes|y)$ ]]; then
+    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+    echo "Open tmux to finish installation! If you already have a tmux session"
+    echo "running, run 'tmux source ~/.tmux.conf'."
+fi
+    
+echo
+read -r -p "Would you like to install the plugin manager (vim-plug) for vim? [y/N] " responsevim
+responsevim=${responsevim,,} # to lower case
+if [[ $responsevim =~ ^(yes|y)$ ]]; then
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    echo "Once vim is open, run :PlugInstall to finish installation!"
+fi
 echo "Done!"
