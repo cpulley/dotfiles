@@ -24,7 +24,7 @@ export PROMPT_GEOMETRY_COLORIZE_ROOT=true
 #                       |___/             #
 #                                         #
 ###########################################
-source /home/cpulley/.antigen/antigen.zsh
+source "$HOME/.antigen/antigen.zsh"
 
 antigen use oh-my-zsh
 
@@ -101,7 +101,7 @@ PATH="$PATH:$HOME/.scripts/"
 export EDITOR="vim"
 
 # Perl settings
-# Automatically added by cpan
+# Automatically added by cpan, probably want to remove if you aren't me
 PATH="/home/cpulley/.perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/cpulley/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/cpulley/.perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
