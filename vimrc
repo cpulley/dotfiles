@@ -19,7 +19,6 @@ Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy finding for files/buffers/etc
 Plug 'Raimondi/delimitMate'           " Automated closing of parentheses/quotations
 Plug 'yggdroot/indentline'            " Shows levels of indention
 Plug 'scrooloose/nerdtree'            " File browser
-Plug 'roxma/nvim-completion-manager'  " Quick and easy completion
 Plug 'majutsushi/tagbar'              " Shows tags, ordered by scope, in a pane. (UNCONFIGURED)
 Plug 'NLKNguyen/papercolor-theme'     " Bright theme
 Plug 'scrooloose/syntastic'           " Syntax coloring for many different filetypes
