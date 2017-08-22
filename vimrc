@@ -134,7 +134,7 @@ set whichwrap+=<,>,h,l
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
@@ -161,7 +161,7 @@ map <silent> <leader>/ :noh<cr>
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
+map <leader>tm :tabmove
 
 " Different keybinds for moving through tabs
 map <silent> J :tabnext<cr>
@@ -226,8 +226,8 @@ let g:startify_custom_header = [
 						\]
 
 let g:startify_skiplist = [
-  				  \'\.vimwiki'
- 					  \]
+						\'\.vimwiki'
+						\]
 
 """""""""""
 " Tabular "
