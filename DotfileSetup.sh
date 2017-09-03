@@ -108,10 +108,10 @@ done
 
 
 echo 
-read -r -p "Would you like to install the plugin manager (antigen) for zsh? [y/N] " responsezsh
+read -r -p "Would you like to install the plugin manager (zplug) for zsh? [y/N] " responsezsh
 responsezsh=${responsezsh,,} # to lower case
 if [[ $responsezsh =~ ^(yes|y)$ ]]; then
-    git clone https://github.com/zsh-users/antigen.git "$HOME/.antigen"
+    git clone https://github.com/zplug/zplug "$HOME/.zplug"
     echo "Open or reopen zsh to finish installation!"
 fi
 
