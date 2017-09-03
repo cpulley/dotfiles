@@ -45,6 +45,10 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
 
+antigen bundle b4b4r07/zsh-vimode-visual
+antigen bundle b4b4r07/enhancd
+export ENHANCD_DISABLE_DOT=1
+
 antigen apply
 
 ######################################
@@ -96,6 +100,13 @@ PATH="$PATH:$HOME/.scripts/"
 
 # Use vim instead of nano
 export EDITOR="vim"
+
+## Couple fixes for vimode, check the following for more information
+## https://superuser.com/questions/476532/how-can-i-make-zshs-vi-mode-behave-more-like-bashs-vi-mode#533685
+# Set keytimeout to 0.01s
+export KEYTIMEOUT=1
+# Bind escape to undefined-key, fixes a big issue with low keytimeout
+bindkey -M vicmd '^[' undefined-key
 
 # Perl settings
 # Automatically added by cpan, probably want to remove if you aren't me
