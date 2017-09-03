@@ -98,9 +98,6 @@ set laststatus=2
 set noshowmode
 set background=light
 
-" Shorten indentions
-set tabstop=2
-
 " Gvim tweaks
 set guifont=Hack\ 7.5
 set guioptions=aig
