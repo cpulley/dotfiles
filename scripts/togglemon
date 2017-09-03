@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [ $(xrandr | grep \* | grep -c 1920x1080) -ne 3 ]; then
-  xrandr --output VGA-0 --rotate right && xrandr --output DVI-D-0 --auto --pos 1080x400 && xrandr --output HDMI-0 --auto --right-of DVI-D-0
-else
-  xrandr --output VGA-0 --rotate normal && xrandr --output DVI-D-0 --off && xrandr --output HDMI-0 --off
-fi
