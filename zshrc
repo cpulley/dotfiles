@@ -14,42 +14,48 @@ export GEOMETRY_COLOR_DIR="blue" # current directory color
 
 export PROMPT_GEOMETRY_COLORIZE_ROOT=true
 
-###########################################
-#                 _   _                   #
-#     /\         | | (_)                  #
-#    /  \   _ __ | |_ _  __ _  ___ _ __   #
-#   / /\ \ | '_ \| __| |/ _` |/ _ \ '_ \  #
-#  / ____ \| | | | |_| | (_| |  __/ | | | #
-# /_/    \_\_| |_|\__|_|\__, |\___|_| |_| #
-#                       |___/             #
-#                                         #
-###########################################
-source "$HOME/.antigen/antigen.zsh"
+##############################
+#  _________  _              #
+# |__  /  _ \| |_   _  __ _  #
+#   / /| |_) | | | | |/ _` | #
+#  / /_|  __/| | |_| | (_| | #
+# /____|_|   |_|\__,_|\__, | #
+#                     |___/  #
+##############################
+#
+source "$HOME/.zplug/init.zsh"
 
-antigen use oh-my-zsh
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
-antigen bundle adb
-antigen bundle archlinux
-antigen bundle git
-antigen bundle vi-mode
-antigen bundle wd
+zplug "plugins/adb",       from:oh-my-zsh
+zplug "plugins/archlinux", from:oh-my-zsh
+zplug "plugins/git",       from:oh-my-zsh
+zplug "plugins/vi-mode",   from:oh-my-zsh
+zplug "plugins/wd",        from:oh-my-zsh
 
-antigen bundle frmendes/geometry
+zplug "frmendes/geometry"
 
-antigen bundle jreese/zsh-titles
+zplug "jreese/zsh-titles"
 
-antigen bundle horosgrisa/autoenv
+zplug "horosgrisa/autoenv"
 
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle zsh-users/zsh-syntax-highlighting
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-syntax-highlighting"
 
-antigen bundle b4b4r07/zsh-vimode-visual
-antigen bundle b4b4r07/enhancd
+zplug "b4b4r07/zsh-vimode-visual"
+zplug "b4b4r07/enhancd"
 export ENHANCD_DISABLE_DOT=1
 
-antigen apply
+if ! zplug check --verbose; then
+	printf "Install? [y/N]: "
+	if read -q; then
+		echo; zplug install
+	fi
+fi
+
+zplug load
 
 ######################################
 #           _ _                      #
