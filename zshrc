@@ -45,7 +45,7 @@ zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting"
 
 zplug "b4b4r07/zsh-vimode-visual"
-zplug "b4b4r07/enhancd"
+zplug "b4b4r07/enhancd", use:init.sh
 export ENHANCD_DISABLE_DOT=1
 
 if ! zplug check --verbose; then
