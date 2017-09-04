@@ -87,6 +87,9 @@ alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 # Replace vim with nvim (muscle memory is hard to fix)
 alias vim='nvim'
 
+# List explicitly installed packages
+alias paclsexplicit="pacman -Qe | pacman -Qi | grep 'Name\|Description' | cut -d \: -f 2 | awk ' {print;} NR % 2 == 0 { print "\n"; }' | less"
+
 # Use pacmatic as wrapper for pacaur
 function up(){
 	CURRENT_UID=$UID
