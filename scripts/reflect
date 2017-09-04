@@ -1,0 +1,12 @@
+#!/bin/bash
+MIRROR_PATH="/tmp/mirrorlist-$(date +%Y%M%d%H%M%S)"
+if sudo reflector --threads 5 -p https -c US --sort score -n 10 --save "$MIRROR_PATH"
+then
+		echo
+		echo Success!
+		sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.prereflect 
+		sudo mv "$MIRROR_PATH" /etc/pacman.d/mirrorlist
+		grep -v \#\# < /etc/pacman.d/mirrorlist
+else
+		echo Reflect failed, making no changes.
+fi

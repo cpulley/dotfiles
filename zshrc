@@ -87,9 +87,6 @@ alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 # Replace vim with nvim (muscle memory is hard to fix)
 alias vim='nvim'
 
-# Easily update the mirrorlist
-alias reflect='sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.prereflect && sudo reflector --threads 5 -p https -c US --sort score -n 10 --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist | grep -v \#\#'
-
 # Use pacmatic as wrapper for pacaur
 function up(){
 	CURRENT_UID=$UID
