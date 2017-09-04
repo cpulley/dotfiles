@@ -46,7 +46,7 @@ zplug "zsh-users/zsh-history-substring-search"              # Fish-like partial 
 zplug "zdharma/fast-syntax-highlighting", defer:2           # Faster and more colorful highlighting
 zplug "zdharma/history-search-multi-word", defer:3          # Better ^R search
 
-zplug "b4b4r07/zsh-vimode-visual"                           # Adds visual mode to vimode!
+zplug "b4b4r07/zsh-vimode-visual", defer:3                  # Adds visual mode to vimode!
 zplug "b4b4r07/enhancd",   use:init.sh                      # Fuzzy cd
 export ENHANCD_DISABLE_DOT=1
 
