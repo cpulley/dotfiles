@@ -91,7 +91,10 @@ alias vim='nvim'
 alias reflect='sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.prereflect && sudo reflector --threads 5 -p https -c US --sort score -n 10 --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist | grep -v \#\#'
 
 # Use pacmatic as wrapper for pacaur
-alias up='pacman_program="sudo -u #$UID pacaur" sudo -s eval "pacmatic -Syu && paccache -r -k 2"'
+function up(){
+	CURRENT_UID=$UID
+	pacman_program="sudo -u #$CURRENT_UID" sudo -s eval "pacmatic -Syu $@ && paccache -r -k 2"
+}
 
 ########################################
 #   _____                           _  #
