@@ -25,27 +25,29 @@ export PROMPT_GEOMETRY_COLORIZE_ROOT=true
 #
 source "$HOME/.zplug/init.zsh"
 
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug 'zplug/zplug',       hook-build:'zplug --self-manage' # Let zplug update itself!
 
-zplug "plugins/adb",       from:oh-my-zsh
-zplug "plugins/archlinux", from:oh-my-zsh
-zplug "plugins/git",       from:oh-my-zsh
-zplug "plugins/vi-mode",   from:oh-my-zsh
-zplug "plugins/wd",        from:oh-my-zsh
+zplug "plugins/adb",       from:oh-my-zsh                   # adb completions
+zplug "plugins/archlinux", from:oh-my-zsh                   # Handful of aliases for archlinux
+zplug "plugins/git",       from:oh-my-zsh                   # Handful of aliases for git
+zplug "plugins/vi-mode",   from:oh-my-zsh                   # Add more vim bindings to vimode
+zplug "plugins/wd",        from:oh-my-zsh                   # Warp directory, may replace w/enhancd
 
-zplug "frmendes/geometry"
+zplug "frmendes/geometry"                                   # Nice theme
 
-zplug "jreese/zsh-titles"
+zplug "jreese/zsh-titles"                                   # Give titles to tmux sessions
 
-zplug "horosgrisa/autoenv"
+zplug "horosgrisa/autoenv"                                  #
 
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-autosuggestions"                       # Fish-like suggestions
+zplug "zsh-users/zsh-completions"                           # Whole bunch of completions
+zplug "zsh-users/zsh-history-substring-search"              # Fish-like partial history search
 
-zplug "b4b4r07/zsh-vimode-visual"
-zplug "b4b4r07/enhancd", use:init.sh
+zplug "zdharma/fast-syntax-highlighting", defer:2           # Faster and more colorful highlighting
+zplug "zdharma/history-search-multi-word", defer:3          # Better ^R search
+
+zplug "b4b4r07/zsh-vimode-visual"                           # Adds visual mode to vimode!
+zplug "b4b4r07/enhancd",   use:init.sh                      # Fuzzy cd
 export ENHANCD_DISABLE_DOT=1
 
 if ! zplug check --verbose; then
