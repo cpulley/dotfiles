@@ -2,12 +2,12 @@
 export PROMPT_GEOMETRY_GIT_TIME=false
 export PROMPT_GEOMETRY_EXEC_TIME=true
 
-export GEOMETRY_SYMBOL_PROMPT=" ◆ "                  # default prompt symbol
-export GEOMETRY_SYMBOL_PROMPT2=" ⋄ "                 # multiline prompts
-export GEOMETRY_SYMBOL_EXIT_VALUE=" ◇ "              # displayed when exit value is != 0
-export GEOMETRY_SYMBOL_ROOT="«◆»"                    # when logged in user is root
+export GEOMETRY_SYMBOL_PROMPT="  ◆ "                  # default prompt symbol
+export GEOMETRY_SYMBOL_RPROMPT="  ⋄ "                 # multiline prompts
+export GEOMETRY_SYMBOL_EXIT_VALUE="  ◇ "              # displayed when exit value is != 0
+export GEOMETRY_SYMBOL_ROOT=" «◆»"                    # when logged in user is root
 
-export GEOMETRY_COLOR_EXIT_VALUE="red" # prompt symbol color when exit value is != 0
+export GEOMETRY_COLOR_EXIT_VALUE="white" # prompt symbol color when exit value is != 0
 export GEOMETRY_COLOR_PROMPT="white" # prompt symbol color
 export GEOMETRY_COLOR_ROOT="white" # root prompt symbol color
 export GEOMETRY_COLOR_DIR="blue" # current directory color
@@ -25,30 +25,23 @@ export PROMPT_GEOMETRY_COLORIZE_ROOT=true
 #
 source "$HOME/.zplug/init.zsh"
 
-zplug 'zplug/zplug',       hook-build:'zplug --self-manage' # Let zplug update itself!
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'          # Let zplug update itself!
 
-zplug "plugins/adb",       from:oh-my-zsh                   # adb completions
-zplug "plugins/archlinux", from:oh-my-zsh                   # Handful of aliases for archlinux
-zplug "plugins/git",       from:oh-my-zsh                   # Handful of aliases for git
-zplug "plugins/vi-mode",   from:oh-my-zsh                   # Add more vim bindings to vimode
-zplug "plugins/wd",        from:oh-my-zsh                   # Warp directory, may replace w/enhancd
-
-zplug "frmendes/geometry"                                   # Nice theme
-
-zplug "jreese/zsh-titles"                                   # Give titles to tmux sessions
-
-zplug "horosgrisa/autoenv"                                  #
-
-zplug "zsh-users/zsh-autosuggestions"                       # Fish-like suggestions
-zplug "zsh-users/zsh-completions"                           # Whole bunch of completions
-zplug "zsh-users/zsh-history-substring-search"              # Fish-like partial history search
-
-zplug "zdharma/fast-syntax-highlighting", defer:2           # Faster and more colorful highlighting
-zplug "zdharma/history-search-multi-word", defer:3          # Better ^R search
-
-zplug "b4b4r07/zsh-vimode-visual", defer:3                  # Adds visual mode to vimode!
-zplug "b4b4r07/enhancd",   use:init.sh                      # Fuzzy cd
-export ENHANCD_DISABLE_DOT=1
+zplug "plugins/adb",                            from:oh-my-zsh # adb completions
+zplug "plugins/archlinux",                      from:oh-my-zsh # Handful of aliases for archlinux
+zplug "horosgrisa/autoenv"                                     #
+zplug "b4b4r07/enhancd",                        use:init.sh    # Fuzzy cd
+zplug "zdharma/fast-syntax-highlighting",       defer:2        # Faster and more colorful highlighting
+zplug "ytet5uy4/fzf-widgets"                                   # Add fzf searching for various things
+zplug "frmendes/geometry"                                      # Nice theme
+zplug "plugins/git",                            from:oh-my-zsh # Handful of aliases for git
+zplug "plugins/vi-mode",                        from:oh-my-zsh # Add more vim bindings to vimode
+zplug "plugins/wd",                             from:oh-my-zsh # Warp directory, may replace w/enhancd
+zplug "zsh-users/zsh-autosuggestions"                          # Fish-like suggestions
+zplug "zsh-users/zsh-completions"                              # Whole bunch of completions
+zplug "zsh-users/zsh-history-substring-search", defer:3        # Fish-like partial history search
+zplug "jreese/zsh-titles"                                      # Give titles to tmux sessions
+zplug "b4b4r07/zsh-vimode-visual",              defer:3        # Adds visual mode to vimode!
 
 if ! zplug check --verbose; then
 	printf "Install? [y/N]: "
@@ -59,15 +52,60 @@ fi
 
 zplug load
 
-######################################
-#           _ _                      #
-#     /\   | (_)                     #
-#    /  \  | |_  __ _ ___  ___  ___  #
-#   / /\ \ | | |/ _` / __|/ _ \/ __| #
-#  / ____ \| | | (_| \__ \  __/\__ \ #
-# /_/    \_\_|_|\__,_|___/\___||___/ #
-#                                    #
-######################################
+################################################################
+#  ____  _             _          ____             __ _        #
+# |  _ \| |_   _  __ _(_)_ __    / ___|___  _ __  / _(_) __ _  #
+# | |_) | | | | |/ _` | | '_ \  | |   / _ \| '_ \| |_| |/ _` | #
+# |  __/| | |_| | (_| | | | | | | |__| (_) | | | |  _| | (_| | #
+# |_|   |_|\__,_|\__, |_|_| |_|  \____\___/|_| |_|_| |_|\__, | #
+#                |___/                                  |___/  #
+################################################################
+
+# enhancd
+export ENHANCD_DISABLE_DOT=1 # Let "cd .." just go back
+export ENHANCD_FILTER=fzf    # Use fzf instead of fzf-tmux
+
+# fzf-widgets
+bindkey '^R' fzf-insert-history # Use ^R for fuzzy history search
+
+# zsh-history-substring-search
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=default,bold'
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,bold'
+
+#######################################
+#   ____                           _  #
+#  / ___| ___ _ __   ___ _ __ __ _| | #
+# | |  _ / _ \ '_ \ / _ \ '__/ _` | | #
+# | |_| |  __/ | | |  __/ | | (_| | | #
+#  \____|\___|_| |_|\___|_|  \__,_|_| #
+#                                     #
+#######################################
+
+# Add ~/.scripts/ to path
+PATH="$PATH:$HOME/.scripts/"
+
+# Use vim instead of nano
+export EDITOR="vim"
+
+# Keep history a-la oh-my-zsh
+export HISTFILE="$HOME/.zsh_history"
+export SAVEHSIT="10000"
+
+# Make fzf not be fullscreen
+export FZF_DEFAULT_OPTS='--height 40%'
+
+#####################################
+#     _    _ _                      #
+#    / \  | (_) __ _ ___  ___  ___  #
+#   / _ \ | | |/ _` / __|/ _ \/ __| #
+#  / ___ \| | | (_| \__ \  __/\__ \ #
+# /_/   \_\_|_|\__,_|___/\___||___/ #
+#                                   #
+#####################################
 
 # Following are ripped from oh-my-zsh's common-aliases plugin
 alias ls='ls --color --time-style long-iso'
@@ -96,33 +134,4 @@ function up(){
 	pacman_program="sudo -u #$CURRENT_UID" sudo -s eval "pacmatic -Syu $@ && paccache -r -k 2"
 }
 
-########################################
-#   _____                           _  #
-#  / ____|                         | | #
-# | |  __  ___ _ __   ___ _ __ __ _| | #
-# | | |_ |/ _ \ '_ \ / _ \ '__/ _` | | #
-# | |__| |  __/ | | |  __/ | | (_| | | #
-#  \_____|\___|_| |_|\___|_|  \__,_|_| #
-#                                      #
-########################################
 
-# Add ~/.scripts/ to path
-PATH="$PATH:$HOME/.scripts/"
-
-# Use vim instead of nano
-export EDITOR="vim"
-
-## Couple fixes for vimode, check the following for more information
-## https://superuser.com/questions/476532/how-can-i-make-zshs-vi-mode-behave-more-like-bashs-vi-mode#533685
-# Set keytimeout to 0.01s
-export KEYTIMEOUT=1
-# Bind escape to undefined-key, fixes a big issue with low keytimeout
-bindkey -M vicmd '^[' undefined-key
-
-# Perl settings
-# Automatically added by cpan, probably want to remove if you aren't me
-PATH="/home/cpulley/.perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/cpulley/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/cpulley/.perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/cpulley/.perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/cpulley/.perl5"; export PERL_MM_OPT;
