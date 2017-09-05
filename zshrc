@@ -62,8 +62,9 @@ zplug load
 ################################################################
 
 # enhancd
-export ENHANCD_DISABLE_DOT=1 # Let "cd .." just go back
-export ENHANCD_FILTER=fzf    # Use fzf instead of fzf-tmux
+export ENHANCD_DISABLE_DOT=1    # Let "cd .." just go back
+export ENHANCD_DISABLE_HYPHEN=1 # Same, but with "cd -"
+export ENHANCD_FILTER=fzf       # Use fzf instead of fzf-tmux
 
 # fzf-widgets
 bindkey '^R' fzf-insert-history # Use ^R for fuzzy history search
@@ -92,8 +93,10 @@ PATH="$PATH:$HOME/.scripts/"
 export EDITOR="vim"
 
 # Keep history a-la oh-my-zsh
+setopt hist_ignore_all_dups inc_append_history
 export HISTFILE="$HOME/.zsh_history"
-export SAVEHSIT="10000"
+export HISTSIZE="4096"
+export SAVEHSIT="4096"
 
 # Make fzf not be fullscreen
 export FZF_DEFAULT_OPTS='--height 40%'
@@ -133,5 +136,3 @@ function up(){
 	CURRENT_UID=$UID
 	pacman_program="sudo -u #$CURRENT_UID" sudo -s eval "pacmatic -Syu $@ && paccache -r -k 2"
 }
-
-
