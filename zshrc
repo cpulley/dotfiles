@@ -99,7 +99,7 @@ export HISTSIZE="4096"
 export SAVEHSIT="4096"
 
 # Make fzf not be fullscreen
-export FZF_DEFAULT_OPTS='--height 40%'
+export FZF_DEFAULT_OPTS='--height 40% --reverse'
 
 #####################################
 #     _    _ _                      #
