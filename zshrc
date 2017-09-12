@@ -134,5 +134,5 @@ alias paclsexplicit="pacman -Qe | pacman -Qi | grep 'Name\|Description' | cut -d
 # Use pacmatic as wrapper for pacaur
 function up(){
 	CURRENT_UID=$UID
-	pacman_program="sudo -u #$CURRENT_UID" sudo -s eval "pacmatic -Syu $@ && paccache -r -k 2"
+	pacman_program="sudo -u #$CURRENT_UID pacaur" sudo -s eval "pacmatic -Syu $@ && paccache -r -k 2"
 }
