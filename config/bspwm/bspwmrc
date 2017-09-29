@@ -82,5 +82,14 @@ bspc config top_padding 2
 #                           #
 #############################
 
+# Steam's normal desktop windows have both class and instance Steam
+# while Steam's big picture mode windows have class/instance steam.
+# To get normal steam windows tiled and functional big picture mode
+# and steam keyboard windows, we have to default to focus=off/floating.
+# Big picture mode defaults to max resolution, so it appears to be
+# fullscreen, but fullscreen and floating games /should/ draw above it.
+# Alongside that, if steam keyboard has focus, it tries to type into itself.
 bspc rule -a Steam state=tiled
+bspc rule -a steam:steam state=floating floating=on focus=off border=off layer=normal
+
 bspc rule -a Oblogout state=fullscreen follow=on monitor=DVI-D-0
