@@ -125,6 +125,13 @@ alias lrt='ls -1Fcrt'
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
+# Handful of quick aliases for cargo
+alias cs='cargo search'
+alias cr='cargo run'
+alias crr='cargo run --release'
+alias cb='cargo build'
+alias cbr='cargo build --release'
+
 # Replace vim with nvim (muscle memory is hard to fix)
 alias vim='nvim'
 
