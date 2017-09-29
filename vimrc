@@ -13,26 +13,37 @@ filetype off                  " required
 " set the runtime path to include Plug and initialize
 call plug#begin('~/.vim/plugins')
 
-Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy finding for files/buffers/etc
-Plug 'Raimondi/delimitMate'           " Automated closing of parentheses/quotations
-Plug 'yggdroot/indentline'            " Shows levels of indention
-Plug 'scrooloose/nerdtree'            " File browser
-Plug 'majutsushi/tagbar'              " Shows tags, ordered by scope, in a pane. (UNCONFIGURED)
-Plug 'NLKNguyen/papercolor-theme'     " Bright theme
-Plug 'scrooloose/syntastic'           " Syntax coloring for many different filetypes
-Plug 'godlygeek/tabular'              " Simple but extensible alignment
-Plug 'vim-airline/vim-airline'        " Replacement for powerline
-Plug 'vim-airline/vim-airline-themes' " Themes for airline
-Plug 'tpope/vim-commentary'           " Quick commenting
-Plug 'fadein/vim-FIGlet'              " Quick ascii art
-Plug 'tpope/vim-fugitive'             " Git wrapper
-Plug 'airblade/vim-gitgutter'         " Show added/removed lines since last git commit
-Plug 'terryma/vim-multiple-cursors'   " Multiple cursors
-Plug 'sheerun/vim-polyglot'           " Also syntax coloring for many different filetypes
-Plug 'mhinz/vim-startify'             " Fancy start menu
-Plug 'tpope/vim-surround'             " Quick commands to surround words/lines
-Plug 'christoomey/vim-tmux-navigator' " Vim-aware tmux movement
-Plug 'vimwiki/vimwiki'                " Personal wiki, mostly for notes.
+Plug 'rafi/awesome-vim-colorschemes'     " Just in case I ever get bored of PaperColor
+Plug 'Raimondi/delimitMate'              " Automated closing of parentheses/quotations
+Plug 'junegunn/fzf'                      " Extremely fast uzzy finder
+Plug 'junegunn/fzf.vim'                  " More hooks for vim to use fzf
+Plug 'junegunn/goyo.vim'                 " Disables all UI for better focus
+Plug 'yggdroot/indentline'               " Shows levels of indention
+Plug 'junegunn/limelight.vim'            " Dims all not-focused paragraphs
+Plug 'scrooloose/nerdtree'               " File browser
+Plug 'majutsushi/tagbar'                 " Shows tags, ordered by scope, in a pane. (UNCONFIGURED)
+Plug 'NLKNguyen/papercolor-theme'        " Bright theme
+Plug 'rust-lang/rust.vim'                " Provides rust syntax highlighting
+Plug 'scrooloose/syntastic'              " Syntax checking for many different filetypes
+Plug 'godlygeek/tabular'                 " Simple but extensible alignment
+Plug 'wellle/targets.vim'                " Adds various text objects
+Plug 'mbbill/undotree'                   " Undo visualizer, replacement for Gundo
+Plug 'vim-airline/vim-airline'           " Replacement for powerline
+Plug 'vim-airline/vim-airline-themes'    " Themes for airline
+Plug 'tpope/vim-commentary'              " Quick commenting
+Plug 'fadein/vim-FIGlet'                 " Quick ascii art
+Plug 'tpope/vim-fugitive'                " Git wrapper
+Plug 'airblade/vim-gitgutter'            " Show added/removed lines since last git commit
+Plug 'terryma/vim-multiple-cursors'      " Multiple cursors
+Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switches between hybrid and absolute line numbers
+Plug 'sheerun/vim-polyglot'              " Also syntax coloring for many different filetypes
+Plug 'mhinz/vim-startify'                " Fancy start menu
+Plug 'tpope/vim-surround'                " Quick commands to surround words/lines
+Plug 'christoomey/vim-tmux-navigator'    " Vim-aware tmux movement
+Plug 'tpope/vim-unimpaired'              " Adds a lot of bindings based off of brackets
+Plug 'vimwiki/vimwiki'                   " Personal wiki, mostly for notes.
+Plug 'shougo/vinarise'                   " Make vim a hex editor
+Plug 'Valloric/YouCompleteMe'            " Tab completion
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -155,9 +166,9 @@ map <leader>tn :tabnew<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 
-" Different keybinds for moving through tabs
-map <silent> J :tabnext<cr>
-map <silent> K :tabprev<cr>
+" Allow for w3m style scrolling
+map <silent> J j<C-e>
+map <silent> K k<C-y>
 
 " Yank and paste use clipboard instead of vim buffer
 " This will not work with minimal vim!
@@ -193,27 +204,67 @@ let g:airline_theme='papercolor'
 " Enable shiny tab/bufferline
 let g:airline#extensions#tabline#enabled = 1
 
+"""""""""""
+" FZF.vim "
+"""""""""""
+
+" Keybinds
+nmap <c-p>f :Files<cr>
+nmap <c-p>b :Buffers<cr>
+nmap <c-p>l :BLines<cr>
+nmap <c-p>m :Marks<cr>
+
+" Set up Colors
+let g:fzf_colors = {
+	\ 'fg':      ['fg', 'Comment'],
+	\ 'bg':      ['bg', 'Comment'],
+	\ 'hl':      ['fg', 'Label'],
+	\ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+	\ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+	\ 'hl+':     ['fg', 'Label'],
+	\ 'info':    ['fg', 'Normal'],
+	\ 'prompt':  ['fg', 'Normal'],
+	\ 'pointer': ['fg', 'Normal'],
+	\ 'marker':  ['fg', 'Exception'],
+	\ 'spinner': ['fg', 'Normal'],
+	\ 'header':  ['fg', 'Normal'] }
+
+" Set fzf to left side to match nerdtree
+let g:fzf_layout = { 'left': '~25%' }
+
+""""""""""""""""""""
+" Goyo / Limelight "
+""""""""""""""""""""
+
+nmap <silent> cog :Goyo<cr>
+nmap <silent> cof :Limelight!! 0.7<cr>
+
+let g:goyo_width = 120
+
+autocmd! User GoyoEnter Limelight0.7
+autocmd! User GoyoLeave Limelight!
+
 """"""""""""
 " Startify "
 """"""""""""
 
 let g:startify_custom_header = [
-						\"        ________ ++     ________ 		",
-						\"       /VVVVVVVV\++++  /VVVVVVVV\ 	",
-						\"       \VVVVVVVV/++++++\VVVVVVVV/ 	",
-						\"        |VVVVVV|++++++++/VVVVV/' 		",
-						\"        |VVVVVV|++++++/VVVVV/' 		",
-						\"       +|VVVVVV|++++/VVVVV/'+ 		",
-						\"     +++|VVVVVV|++/VVVVV/'+++++ 		",
-						\"   +++++|VVVVVV|/VVV___++++++++++ 	",
-						\"     +++|VVVVVVVVVV/##/ +_+_+_+_ 		",
-						\"       +|VVVVVVVVV___ +/#_#,#_#,\ 	",
-						\"        |VVVVVVV//##/+/#/+/#/'/#/ 	",
-						\"        |VVVVV/'+/#/+/#/+/#/ /#/ 		",
-						\"        |VVV/'++/#/+/#/ /#/ /#/ 		",
-						\"        'V/'  /##//##//##//###/ 		",
-						\"                 ++ 					",
-						\]
+	\"        ________ ++     ________  ",
+	\"       /VVVVVVVV\++++  /VVVVVVVV\ ",
+	\"       \VVVVVVVV/++++++\VVVVVVVV/ ",
+	\"        |VVVVVV|++++++++/VVVVV/'  ",
+	\"        |VVVVVV|++++++/VVVVV/'    ",
+	\"       +|VVVVVV|++++/VVVVV/'+     ",
+	\"     +++|VVVVVV|++/VVVVV/'+++++   ",
+	\"   +++++|VVVVVV|/VVV___++++++++++ ",
+	\"     +++|VVVVVVVVVV/##/ +_+_+_+_  ",
+	\"       +|VVVVVVVVV___ +/#_#,#_#,\ ",
+	\"        |VVVVVVV//##/+/#/+/#/'/#/ ",
+	\"        |VVVVV/'+/#/+/#/+/#/ /#/  ",
+	\"        |VVV/'++/#/+/#/ /#/ /#/   ",
+	\"        'V/'  /##//##//##//###/   ",
+	\"                 ++               ",
+	\]
 
 let g:startify_skiplist = [
 						\'\.vimwiki'
@@ -236,7 +287,7 @@ noremap <silent> <C-k> :TmuxNavigateUp<cr>
 noremap <silent> <C-l> :TmuxNavigateRight<cr>
 noremap <silent> <C-\> :TmuxNavigatePrevious<cr>
 
-"Same bindings, but for insert mode
+" Same bindings, but for insert mode
 
 inoremap <silent> <C-h> <C-o>:TmuxNavigateLeft<cr>
 inoremap <silent> <C-j> <C-o>:TmuxNavigateDown<cr>
@@ -256,8 +307,65 @@ let g:multi_cursor_exit_from_insert_mode = 0
 
 noremap <Leader>cd :NERDTree<cr>
 
+"""""""""""""
+" Syntastic "
+"""""""""""""
+
+" Recommended settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+""""""""""
+" Tagbar "
+""""""""""
+
+nmap <leader><leader>t :TagbarToggle<CR>
+
+" Rust support
+let g:tagbar_type_rust = {
+	\ 'ctagstype' : 'rust',
+	\ 'kinds' : [
+		\'T:types,type definitions',
+		\'f:functions,function definitions',
+		\'g:enum,enumeration names',
+		\'s:structure names',
+		\'m:modules,module names',
+		\'c:consts,static constants',
+		\'t:traits',
+		\'i:impls,trait implementations',
+	\]
+	\}
+
+"""""""""""""
+" Undo Tree "
+"""""""""""""
+
+nmap <leader>u :UndotreeToggle<cr>
+
+let g:undotree_WindowLayout = 4
+let g:undotree_SplitWidth = 32
+
 """"""""""""
 " Vim Wiki "
 """"""""""""
 
 let g:vimwiki_list = [{'path': '~/.vimwiki', 'path_html': '~/.vimwiki/html'}]
+
+""""""""""""
+" Vinarise "
+""""""""""""
+
+let g:vinarise_enable_auto_detect = 1
+nmap <leader><leader>v :Vinarise<cr>
+
+"""""""""""""""""
+" YouCompleteMe "
+"""""""""""""""""
+
+let g:ycm_rust_src_path = '$HOME/.build/rust/src/rustc-1.20.0-src/'
