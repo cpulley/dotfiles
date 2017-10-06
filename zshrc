@@ -27,21 +27,18 @@ source "$HOME/.zplug/init.zsh"
 
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'          # Let zplug update itself!
 
-zplug "plugins/adb",                            from:oh-my-zsh # adb completions
-zplug "plugins/archlinux",                      from:oh-my-zsh # Handful of aliases for archlinux
-zplug "horosgrisa/autoenv"                                     #
-zplug "b4b4r07/enhancd",                        use:init.sh    # Fuzzy cd
-zplug "zdharma/fast-syntax-highlighting",       defer:2        # Faster and more colorful highlighting
-zplug "ytet5uy4/fzf-widgets"                                   # Add fzf searching for various things
-zplug "frmendes/geometry"                                      # Nice theme
-zplug "plugins/git",                            from:oh-my-zsh # Handful of aliases for git
-zplug "plugins/vi-mode",                        from:oh-my-zsh # Add more vim bindings to vimode
-zplug "plugins/wd",                             from:oh-my-zsh # Warp directory, may replace w/enhancd
-zplug "zsh-users/zsh-autosuggestions"                          # Fish-like suggestions
-zplug "zsh-users/zsh-completions"                              # Whole bunch of completions
-zplug "zsh-users/zsh-history-substring-search", defer:3        # Fish-like partial history search
-zplug "jreese/zsh-titles"                                      # Give titles to tmux sessions
-zplug "b4b4r07/zsh-vimode-visual",              defer:3        # Adds visual mode to vimode!
+zplug "horosgrisa/autoenv"                                  #
+zplug "b4b4r07/enhancd",                        use:init.sh # Fuzzy cd
+zplug "fabiokiatkowski/exercism.plugin.zsh"                 # Excercism.io tool--Programming challenges
+zplug "zdharma/fast-syntax-highlighting",       defer:2     # Faster and more colorful highlighting
+zplug "ytet5uy4/fzf-widgets"                                # Add fzf searching for various things
+zplug "frmendes/geometry"                                   # Nice theme
+zplug "sharat87/zsh-vim-mode"                               # Better vim bindings (sans OMZ!)
+zplug "zsh-users/zsh-autosuggestions"                       # Fish-like suggestions
+zplug "zsh-users/zsh-completions"                           # Whole bunch of completions
+zplug "zsh-users/zsh-history-substring-search", defer:3     # Fish-like partial history search
+zplug "jreese/zsh-titles"                                   # Give titles to tmux sessions
+zplug "b4b4r07/zsh-vimode-visual",              defer:3     # Adds visual mode to vimode!
 
 if ! zplug check --verbose; then
 	printf "Install? [y/N]: "
@@ -99,7 +96,10 @@ export HISTSIZE="4096"
 export SAVEHSIT="4096"
 
 # Make fzf not be fullscreen
-export FZF_DEFAULT_OPTS='--height 40% --reverse'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --color=bg+:254,fg+:238,hl+:26,hl:26,fg:243,prompt:240,pointer:240'
+
+# Make hitting escape more responsive with vimode
+export KEYTIMEOUT=1
 
 #####################################
 #     _    _ _                      #
@@ -110,33 +110,45 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse'
 #                                   #
 #####################################
 
-# Following are ripped from oh-my-zsh's common-aliases plugin
-alias ls='ls --color --time-style long-iso'
-alias l='ls -lFh'     #size,show type,human readable
-alias la='ls -lAFh'   #long list,show almost all,show type,human readable
-alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
-alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
-alias ll='ls -l'      #long list
-alias ldot='ls -ld .*'
-alias lS='ls -1FSsh'
-alias lart='ls -1Fcart'
-alias lrt='ls -1Fcrt'
+# Cargo
+alias cb='cargo build'
+alias cbr='cargo build --release'
+alias cr='cargo run'
+alias crr='cargo run --release'
+alias cs='cargo search'
 
+# Git
+alias ga='git add'
+alias gc='git commit'
+alias gca='git commit -v -a'
+alias gcm='git checkout master'
+alias gd='git diff'
+alias gst='git status'
+
+# Grep
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
-# Handful of quick aliases for cargo
-alias cs='cargo search'
-alias cr='cargo run'
-alias crr='cargo run --release'
-alias cb='cargo build'
-alias cbr='cargo build --release'
+# ls
+alias l='ls -lFh'     #size,show type,human readable
+alias lS='ls -1FSsh'
+alias la='ls -lAFh'   #long list,show almost all,show type,human readable
+alias lart='ls -1Fcart'
+alias ldot='ls -ld .*'
+alias ll='ls -l'      #long list
+alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
+alias lrt='ls -1Fcrt'
+alias ls='ls --color --time-style long-iso'
+alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
+
+# Pacman
+alias pacls='pacman -Qi | grep "Name\|Description" | cut -d \: -f 2 | awk " {print;} NR % 2 == 0 { print "\n"; }"'
+alias paclsexplicit='pacman -Qe | pacman -Qi | grep "Name\|Description" | cut -d \: -f 2 | awk " {print;} NR % 2 == 0 { print "\n"; }" | less'
+alias paclsorphans='sudo pacman -Qdt  | pacman -Qi | grep "Name\|Description" | cut -d \: -f 2 | awk " {print;} NR % 2 == 0 { print "\n"; }"'
+alias pacrmorphans='sudo pacman -Rs $(pacman -Qtdq)'
 
 # Replace vim with nvim (muscle memory is hard to fix)
 alias vim='nvim'
-
-# List explicitly installed packages
-alias paclsexplicit="pacman -Qe | pacman -Qi | grep 'Name\|Description' | cut -d \: -f 2 | awk ' {print;} NR % 2 == 0 { print "\n"; }' | less"
 
 # Use pacmatic as wrapper for pacaur
 function up(){
