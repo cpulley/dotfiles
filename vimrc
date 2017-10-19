@@ -241,8 +241,8 @@ nmap <silent> cof :Limelight!! 0.7<cr>
 
 let g:goyo_width = 120
 
-autocmd! User GoyoEnter Limelight0.7
-autocmd! User GoyoLeave Limelight!
+autocmd! User GoyoEnter Limelight0.7|set linebreak|map j gj|map k gk
+autocmd! User GoyoLeave Limelight!|set nolinebreak|unmap j|unmap k
 
 """"""""""""
 " Startify "
