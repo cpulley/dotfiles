@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Kill all existing polybar instances
+killall polybar
+
+# Actually reload configs
+i3-msg restart
+
+# Restart polybar so it updates properly
+polybar DVI-D-0 &
+polybar HDMI-0 &
+polybar VGA-0 &
+polybar LVDS1 &
