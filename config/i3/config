@@ -75,11 +75,8 @@ font pango:Hack 6
 # Draw borders for windows that try to decorate themselves (nautilus, steam)
 for_window [class="^.*"] border pixel 2
 
+# Only draw inner borders
 hide_edge_borders both
-
-# Gaps. Woo.
-gaps inner 0
-gaps outer 0
 
 #----------------------------#
 #  Program-specific Options  #
