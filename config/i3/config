@@ -63,9 +63,9 @@ bindcode $mod+35 workspace next
 #--------------#
 
 # class                 border  backgr. text    indicator child_border
-client.focused 		#707070 #707070 #eeeeee #707070   #707070
-client.focused_inactive #ccccd0 #ccccd0 #4d4d4c #ccccd0   #ccccd0
-client.unfocused        #ccccd0 #ccccd0 #999999 #ccccd0   #ccccd0
+client.focused 		#767676 #767676 #eeeeee #767676   #767676
+client.focused_inactive #bcbcbc #bcbcbc #4d4d4c #bcbcbc   #bcbcbc
+client.unfocused        #bcbcbc #bcbcbc #999999 #bcbcbc   #bcbcbc
 client.urgent           #d7005f #d7005f #4d4d4c #d7005f   #d7005f
 
 
@@ -73,7 +73,7 @@ client.urgent           #d7005f #d7005f #4d4d4c #d7005f   #d7005f
 font pango:Hack 6
 
 # Draw borders for windows that try to decorate themselves (nautilus, steam)
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 
 hide_edge_borders both
 
@@ -104,10 +104,10 @@ bindsym $mod+Return exec termite --exec tmux\ -2
 bindcode $mod+51 exec nemo
 
 # App launcher
-bindsym $mod+r exec j4-dmenu-desktop --no-generic --dmenu="rofi -dmenu -location 7 -fuzzy -font 'Hack 6.5' -padding 10 -p 'Launch: ' -width 250 -i -lines 5"
+bindsym $mod+r exec j4-dmenu-desktop --no-generic --dmenu="rofi -dmenu -location 7 -fuzzy -font 'Hack 6.5' -padding 10 -p 'Launch: ' -width 250 -i -lines 5 -hide-scrollbar"
 
 # Password Manager
-bindsym $mod+t exec $HOME/.scripts/rofipass -dmenu -location 7 -fuzzy -font 'Hack 6.5' -padding 10 -p 'Pass: ' -width 250 -i -lines 5
+bindsym $mod+t exec $HOME/.scripts/rofipass -dmenu -location 7 -fuzzy -font 'Hack 6.5' -padding 10 -p 'Pass: ' -width 250 -i -lines 5 -hide-scrollbar
 
 # Workspace Selector
 bindsym $mod+d exec $HOME/.scripts/i3/i3_name_desktop
@@ -116,7 +116,7 @@ bindsym $mod+d exec $HOME/.scripts/i3/i3_name_desktop
 bindsym $mod+Control+d exec $HOME/.scripts/i3/i3_rename_desktop
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # change focus
 bindsym $mod+h focus left
