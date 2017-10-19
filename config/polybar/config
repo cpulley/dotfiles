@@ -53,16 +53,16 @@ module-margin-right = 0
 font-0 = KnackNerdFont:pixelsize=7;1
 font-1 = Weather\ Icons:size=7;1
 
-modules-left = bspwm seperator xwindow
+modules-left = i3 seperator xwindow
 modules-center = playerctl
 modules-right =  weather seperator memory seperator fileprefix filesystem seperator eth wlp0s20f0u12 seperator date seperator
 
-bottom = true
+bottom = false
 
-wm-restack = bspwm
+wm-restack = i3
 
-scroll-up = bspwm-desknext
-scroll-down = bspwm-deskprev
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 ;-------------------------------------------;
 ;  ______     _____      ____         ___   ;
@@ -97,19 +97,19 @@ module-margin-right = 0
 font-0 = KnackNerdFont:pixelsize=7;1
 font-1 = Weather\ Icons:size=7;1
 
-modules-left = bspwm seperator xwindow
+modules-left = i3 seperator xwindow
 modules-center = playerctl
 modules-right =  weather seperator memory seperator fileprefix filesystem seperator eth wlp0s20f0u12 seperator date seperator
 
 tray-position = right
 tray-padding = 0
 
-bottom = true
+bottom = false
 
-wm-restack = bspwm
+wm-restack = i3
 
-scroll-up = bspwm-desknext
-scroll-down = bspwm-deskprev
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 ;-------------------------------------;
 ;  _   _ ____  __  __ ___       ___   ;
@@ -130,9 +130,9 @@ offset-y = 0
 background = ${xrdb:color0}
 foreground = ${xrdb:color7}
 
-overline-size = 1
+overline-size = 2
 overline-color = #f00
-underline-size = -1
+underline-size = 2
 underline-color = #00f
 
 spacing = 0
@@ -144,16 +144,16 @@ module-margin-right = 0
 font-0 = KnackNerdFont:pixelsize=7;1
 font-1 = Weather\ Icons:size=7;1
 
-modules-left = bspwm seperator xwindow
+modules-left = i3 seperator xwindow
 modules-center =
 modules-right =  weather seperator memory seperator fileprefix filesystem seperator eth wlp0s20f0u12 seperator date seperator
 
-bottom = true
+bottom = false
 
-wm-restack = bspwm
+wm-restack = i3
 
-scroll-up = bspwm-desknext
-scroll-down = bspwm-deskprev
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 ;----------------------------;
 ;  _ __     ______  ____  _  ;
@@ -188,19 +188,19 @@ module-margin-right = 0
 font-0 = KnackNerdFont:pixelsize=7;1
 font-1 = Weather\ Icons:size=7;1
 
-modules-left = bspwm seperator xwindow
+modules-left = i3 seperator xwindow
 modules-center = playerctl
 modules-right =  weather seperator memory seperator fileprefix filesystem seperator eth wlp2s0 seperator battery seperator date seperator
 
 tray-position = right
 tray-padding = 0
 
-bottom = true
+bottom = false
 
-wm-restack = bspwm
+wm-restack = i3
 
-scroll-up = bspwm-desknext
-scroll-down = bspwm-deskprev
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 
 ;----------------------------------------;
@@ -211,6 +211,72 @@ scroll-down = bspwm-deskprev
 ; |_|  |_|\___/ \__,_|\__,_|_|\___||___/ ;
 ;                                        ;
 ;----------------------------------------;
+
+[module/i3]
+type = internal/i3
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = false
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = false
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = true
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+wrapping-scroll = true
+
+; Set the scroll cycle direction 
+; Default: true
+reverse-scroll = true
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = #718c00
+label-mode-foreground = #eeeeee
+
+label-focused = %name%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-unfocused = %name%
+label-unfocused-padding = 2
+
+label-visible = %name%
+label-visible-background= #d5d5d5
+label-visible-padding = 2
+
+label-urgent = %name%
+label-urgent-underline = ${colors.alert}
+label-urgent-padding = 2
 
 [module/bspwm]
 type = internal/bspwm
