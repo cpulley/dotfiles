@@ -1,23 +1,21 @@
 #!/bin/bash
 
 if [ $# -eq 0 ]; then
-  if [ $(ls | grep -c pkg.tar.xz) -gt 0 ]; then
+  if [ "$(ls ./*.pkg.tar.xz)" ]; then
     echo "Preparing to install:"
-    ls -1 *pkg.tar.xz
-    sudo pacman -U *.pkg.tar.xz
-    if [ $? -eq 0 ]; then
-      cp *.pkg.tar.xz ~/.build/.cache/
+    ls -1 ./*.pkg.tar.xz
+    if sudo pacman -U ./*.pkg.tar.xz; then
+      cp ./*.pkg.tar.xz ~/.build/.cache/
     fi
   else
     echo "No valid packages found!"
   fi
 else
-  for TARGET in $@
+  for TARGET in "$@"
   do
-    if [ -f $TARGET ] && [ $(echo $TARGET | grep pkg.tar.xz) ]; then
-      sudo pacman -U $TARGET
-      if [ $? -eq 0 ]; then
-        cp $TARGET ~/.build/.cache/
+    if [ -f "$TARGET" ] && [[ "$TARGET" = *.pkg.tar.xz ]]; then
+      if sudo pacman -U "$TARGET"; then
+        cp "$TARGET" ~/.build/.cache/
       fi
     else
       echo "$TARGET is not a valid package!"

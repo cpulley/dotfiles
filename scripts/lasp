@@ -10,7 +10,7 @@ fi
 
 # Check if $HOME is set. If it's not, this script will start messing with root,
 # and I'd like to avoid that.
-if [ -o $HOME ]
+if [ -o "$HOME" ]
 then echo "\$HOME is not set! Exiting..." 
 	 exit 1
 fi
@@ -18,17 +18,16 @@ fi
 
 
 # Create the build directory if it doesn't exist
-if [ ! -d $HOME/.build ]
+if [ ! -d "$HOME/.build" ]
 then
-	mkdir $HOME/.build
-	if [ $? -ne 0 ]
+	if mkdir "$HOME/.build"
 	then
 		echo "Could not create '$HOME/.build/'! Exiting..."
 		exit 1
 	fi
 fi
 
-cd $HOME/.build
+cd "$HOME/.build" || exit 1
 
 # First check cower to see if this is a valid package name.
 # This is a bit dirty, and if cower changes their output, it will break.
@@ -36,22 +35,22 @@ cd $HOME/.build
 
 for PACKAGE in "$@"
 do
-	if [ $(pacman -Ss $PACKAGE | grep -c '/'$PACKAGE'\ ') -eq 1 ]
+	if [ "$(pacman -Ss "$PACKAGE" | grep -c '/'"$PACKAGE"'\ ')" -eq 1 ]
 	then
 
-		if [ -d $HOME/.build/$PACKAGE ] # Clean package directory if it exists
+		if [ -d "$HOME"/.build/"$PACKAGE" ] # Clean package directory if it exists
 		then
-			echo ':: Removing '$HOME'/.build/'$PACKAGE
-			rm -rf ~/.build/$PACKAGE
+			echo ":: Removing '$HOME/.build/$PACKAGE"
+			rm -rf "$HOME/.build/$PACKAGE"
 		fi
-		echo ':: Copying build files to '$HOME'/.build/'$PACKAGE
-		asp export $PACKAGE
+		echo ":: Copying build files to $HOME/.build/$PACKAGE"
+		asp export "$PACKAGE"
 
 	else
-		echo ':: Unable to find '\'$PACKAGE\''! Skipping...'
+		echo ":: Unable to find \'$PACKAGE\'! Skipping..."
 	fi
 done
 
-cd - > /dev/null
+cd - > /dev/null || exit 1
 
 exit 0
