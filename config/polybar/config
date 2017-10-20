@@ -316,7 +316,7 @@ interval = 1
 [module/weather]
 type = custom/script
 interval = 60
-exec = ~/.config/polybar/weather
+exec = cat /tmp/currentweather
 label-font = 2
 
 [module/memory]
