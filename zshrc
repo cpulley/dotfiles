@@ -124,6 +124,7 @@ alias gca='git commit -v -a'
 alias gcm='git checkout master'
 alias gd='git diff'
 alias gst='git status'
+alias gp='git push'
 
 # Grep
 alias grep='grep --color'
