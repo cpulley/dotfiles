@@ -6,6 +6,9 @@ killall polybar
 # Actually reload configs
 i3-msg restart
 
+# Wait for i3 to finish reloading
+sleep 4
+
 # Restart polybar so it updates properly
 polybar DVI-D-0 &
 polybar HDMI-0 &
