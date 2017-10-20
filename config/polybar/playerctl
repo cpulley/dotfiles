@@ -3,9 +3,36 @@
 # Suppress stderr for polybar
 exec 2> /dev/null
 
-if  playerctl status | grep Playing > /dev/null
-then echo '  '$(playerctl metadata artist && echo ' - ' && playerctl metadata title)
-else echo
-fi
+for player in $(playerctl -l)
+do
+	if playerctl status -p "$player" | grep Playing > /dev/null
+	then
+		# Add seperators in the rare case that multiple players are playing
+		if [[ -n $nowplaying ]]
+		then nowplaying="$nowplaying │ "
+		fi
+
+		# Figure out which icon to use
+		if [ "$player" = "spotify" ]
+		then 
+			nowplaying="$nowplaying   " 
+		elif [ "$player" = "smplayer" ]
+		then
+			nowplaying="$nowplaying   "
+		else 
+			nowplaying="$nowplaying   "
+		fi
+
+		# Avoid drawing a dash if artist is empty
+		if [[ -z $(playerctl metadata artist -p "$player") ]]
+		then
+			nowplaying="$nowplaying$(playerctl metadata title -p "$player")"
+		else
+			nowplaying="$nowplaying$(playerctl metadata artist -p "$player") - $(playerctl metadata title -p "$player")"
+		fi
+	fi
+done
+
+echo "$nowplaying"
 
 exit 0
