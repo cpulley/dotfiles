@@ -90,7 +90,7 @@ PATH="$PATH:$HOME/.scripts/"
 export EDITOR="vim"
 
 # Keep history a-la oh-my-zsh
-setopt hist_ignore_all_dups inc_append_history
+setopt inc_append_history
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE="4096"
 export SAVEHSIT="4096"
@@ -119,7 +119,7 @@ alias cs='cargo search'
 
 # Git
 alias ga='git add'
-alias gc='git commit'
+alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gcm='git checkout master'
 alias gd='git diff'
@@ -153,5 +153,6 @@ alias vim='nvim'
 # Use pacmatic as wrapper for pacaur
 function up(){
 	CURRENT_UID=$UID
-	pacman_program="sudo -u #$CURRENT_UID pacaur" sudo -s eval "pacmatic -Syu $@ && paccache -r -k 2"
+	pacman_program="pacaur" pacdiff_program="sudo pacdiff" pacmatic -Syu $@
+	sudo paccache -r -k 2
 }
