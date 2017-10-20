@@ -123,6 +123,7 @@ global:
   messages.unfocused: false
   prompt.filebrowser: true
   prompt.radius: 8
+  qt.args: null
   scrolling.bar: false
   scrolling.smooth: false
   spellcheck.languages: null
