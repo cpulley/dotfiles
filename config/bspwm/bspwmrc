@@ -32,13 +32,8 @@ mpd_notifyd &
 # Compositing! Woo!
 compton &
 
-# These should only launch on desktop
-polybar DVI-D-0 &
-polybar HDMI-0 &
-polybar VGA-0 &
-
-# This should only launch on laptop
-polybar LVDS1 &
+# Launch Polybar
+sh ~/.scripts/bspwm/polybar_start
 
 ########################################## 
 #  ____       _   _   _                  #

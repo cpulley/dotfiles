@@ -20,152 +20,18 @@ alert = #d7005f
 margin-top = 5
 margin-bottom = 5
 
-;-----------------------------------;
-; __     ______    _          ___   ;
-; \ \   / / ___|  / \        / _ \  ;
-;  \ \ / / |  _  / _ \ _____| | | | ;
-;   \ V /| |_| |/ ___ \_____| |_| | ;
-;    \_/  \____/_/   \_\     \___/  ;
-;                                   ;
-;-----------------------------------;
-
-[bar/VGA-0]
-monitor = ${env:MONITOR:VGA-0}
-width = 100%
-height = 18
-offset-x = 0
-offset-y = 0
-
-background = ${xrdb:color0}
-foreground = ${xrdb:color7}
-
-overline-size = 2
-overline-color = #f00
-underline-size = 2
-underline-color = #00f
-
-spacing = 0
-padding-left = 0
-padding-right = 2
-module-margin-left = 1
-module-margin-right = 0
-
-font-0 = KnackNerdFont:pixelsize=7;1
-font-1 = Weather\ Icons:size=7;1
-
-modules-left = i3 seperator xwindow
-modules-center = playerctl
-modules-right =  weather seperator memory seperator fileprefix filesystem seperator eth wlp0s20f0u12 seperator date seperator
-
-bottom = false
-
-wm-restack = i3
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-
-;-------------------------------------------;
-;  ______     _____      ____         ___   ;
-; |  _ \ \   / /_ _|    |  _ \       / _ \  ;
-; | | | \ \ / / | |_____| | | |_____| | | | ;
-; | |_| |\ V /  | |_____| |_| |_____| |_| | ;
-; |____/  \_/  |___|    |____/       \___/  ;
-;                                           ;
-;-------------------------------------------;
-
-[bar/DVI-D-0]
-monitor = ${env:MONITOR:DVI-D-0}
-width = 100%
-height = 18
-offset-x = 0
-offset-y = 0
-
-background = ${xrdb:color0}
-foreground = ${xrdb:color7}
-
-overline-size = 2
-overline-color = #f00
-underline-size = 2
-underline-color = #00f
-
-spacing = 0
-padding-left = 0
-padding-right = 2
-module-margin-left = 1
-module-margin-right = 0
-
-font-0 = KnackNerdFont:pixelsize=7;1
-font-1 = Weather\ Icons:size=7;1
-
-modules-left = i3 seperator xwindow
-modules-center = playerctl
-modules-right =  weather seperator memory seperator fileprefix filesystem seperator eth wlp0s20f0u12 seperator date seperator
-
-tray-position = right
-tray-padding = 0
-
-bottom = false
-
-wm-restack = i3
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-
-;-------------------------------------;
-;  _   _ ____  __  __ ___       ___   ;
-; | | | |  _ \|  \/  |_ _|     / _ \  ;
-; | |_| | | | | |\/| || |_____| | | | ;
-; |  _  | |_| | |  | || |_____| |_| | ;
-; |_| |_|____/|_|  |_|___|     \___/  ;
-;                                     ;
-;-------------------------------------;
-
-[bar/HDMI-0]
-monitor = ${env:MONITOR:HDMI-0}
-width = 100%
-height = 18
-offset-x = 0
-offset-y = 0
-
-background = ${xrdb:color0}
-foreground = ${xrdb:color7}
-
-overline-size = 2
-overline-color = #f00
-underline-size = 2
-underline-color = #00f
-
-spacing = 0
-padding-left = 0
-padding-right = 2
-module-margin-left = 1
-module-margin-right = 0
-
-font-0 = KnackNerdFont:pixelsize=7;1
-font-1 = Weather\ Icons:size=7;1
-
-modules-left = i3 seperator xwindow
-modules-center =
-modules-right =  weather seperator memory seperator fileprefix filesystem seperator eth wlp0s20f0u12 seperator date seperator
-
-bottom = false
-
-wm-restack = i3
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
 
 ;----------------------------;
-;  _ __     ______  ____  _  ;
-; | |\ \   / /  _ \/ ___|/ | ;
-; | | \ \ / /| | | \___ \| | ;
-; | |__\ V / | |_| |___) | | ;
-; |_____\_/  |____/|____/|_| ;
+;  _ _____ _                 ;
+; (_)___ /| |__   __ _ _ __  ;
+; | | |_ \| '_ \ / _` | '__| ; 
+; | |___) | |_) | (_| | |    ;
+; |_|____/|_.__/ \__,_|_|    ;
 ;                            ;
 ;----------------------------;
 
-[bar/LVDS1]
-monitor = ${env:MONITOR:LVDS1}
+[bar/i3bar]
+monitor = ${env:MONITOR:}
 width = 100%
 height = 18
 offset-x = 0
@@ -190,10 +56,7 @@ font-1 = Weather\ Icons:size=7;1
 
 modules-left = i3 seperator xwindow
 modules-center = playerctl
-modules-right =  weather seperator memory seperator fileprefix filesystem seperator eth wlp2s0 seperator battery seperator date seperator
-
-tray-position = right
-tray-padding = 0
+modules-right =  weather seperator memory seperator fileprefix filesystem seperator eth wlp0s20f0u12 seperator date seperator
 
 bottom = false
 
@@ -202,6 +65,49 @@ wm-restack = i3
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
+;--------------------------------------------------------;
+; ____ ____  ______        ____  __ _                    ;
+; | __ ) ___||  _ \ \      / /  \/  | |__   __ _ _ __    ;
+; |  _ \___ \| |_) \ \ /\ / /| |\/| | '_ \ / _` | '__|   ;
+; | |_) |__) |  __/ \ V  V / | |  | | |_) | (_| | |      ;
+; |____/____/|_|     \_/\_/  |_|  |_|_.__/ \__,_|_|      ;
+;                                                        ;
+;--------------------------------------------------------;
+
+[bar/bspwmbar]
+monitor = ${env:MONITOR:}
+width = 100%
+height = 18
+offset-x = 0
+offset-y = 0
+
+background = ${xrdb:color0}
+foreground = ${xrdb:color7}
+
+overline-size = 2
+overline-color = #f00
+underline-size = 2
+underline-color = #00f
+
+spacing = 0
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 0
+
+font-0 = KnackNerdFont:pixelsize=7;1
+font-1 = Weather\ Icons:size=7;1
+
+modules-left = bspwm seperator xwindow
+modules-center = playerctl
+modules-right =  weather seperator memory seperator fileprefix filesystem seperator eth wlp0s20f0u12 seperator date seperator
+
+bottom = true
+
+wm-restack = bspwm
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
 
 ;----------------------------------------;
 ;  __  __           _       _            ;

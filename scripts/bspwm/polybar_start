@@ -3,16 +3,13 @@
 # Kill all existing polybar instances
 killall polybar
 
-# Wait for i3 to finish reloading
-sleep 1
-
 # Restart polybar so it updates properly
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload i3bar &
+    MONITOR=$m polybar --reload bspwmbar &
   done
 else
-  polybar --reload example &
+  polybar --reload bspwmbar &
 fi
 
 exit 0
