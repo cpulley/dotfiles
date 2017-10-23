@@ -1,5 +1,5 @@
 [options]
-font = KnackNerdFont 7
+font = KnackNerdFont 6.5
 scroll_on_output = false
 scroll_on_keystroke = true
 audible_bell = false
