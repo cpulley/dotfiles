@@ -225,35 +225,35 @@ pin-workspaces = true
 
 ; This will split the workspace name on ':'
 ; Default: false
-strip-wsnumbers = false
+; strip-wsnumbers = false
 
 ; Sort the workspaces by index instead of the default
 ; sorting that groups the workspaces by output
 ; Default: false
-index-sort = false
+; index-sort = false
 
 ; Create click handler used to focus workspace
 ; Default: true
-enable-click = true
+; enable-click = true
 
 ; Create scroll handlers used to cycle workspaces
 ; Default: true
-enable-scroll = true
+; enable-scroll = true
 
 ; Wrap around when reaching the first/last workspace
 ; Default: true
-wrapping-scroll = true
+; wrapping-scroll = true
 
 ; Set the scroll cycle direction 
 ; Default: true
-reverse-scroll = true
+; reverse-scroll = true
 
 ; Use fuzzy (partial) matching on labels when assigning 
 ; icons to workspaces
 ; Example: code;♚ will apply the icon to all workspaces 
 ; containing 'code' in the label
 ; Default: false
-fuzzy-match = true
+; fuzzy-match = false
 
 format = <label-state> <label-mode>
 
