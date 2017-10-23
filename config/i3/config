@@ -20,6 +20,9 @@ exec dunst
 # Compositing! Woo!
 exec compton
 
+# Start weather-checking daemon
+exec python ~/.config/polybar/weather
+
 # Polybar for desktop
 exec polybar DVI-D-0
 exec polybar HDMI-0
