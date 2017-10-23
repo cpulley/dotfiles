@@ -88,7 +88,9 @@ font pango:Hack 6
 for_window [class="^.*"] border pixel 2
 
 # Only draw inner borders
-hide_edge_borders both
+gaps inner 10
+smart_gaps on
+smart_borders on
 
 #----------------------------#
 #  Program-specific Options  #
