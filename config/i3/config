@@ -51,15 +51,20 @@ workspace VGA-0 output VGA-0
 workspace DVI-D-0 output DVI-D-0
 workspace HDMI-0 output HDMI-0
 
-# Keybinds for switching to workspaces
+# Keybinds for switching to outputs
 bindsym $mod+u focus output VGA-0
 bindsym $mod+i focus output DVI-D-0
 bindsym $mod+o focus output HDMI-0
 
-# move focused container to workspace
-bindsym $mod+Shift+u move container to output VGA-0
-bindsym $mod+Shift+i move container to output DVI-D-0
-bindsym $mod+Shift+o move container to output HDMI-0
+# move focused container to output
+bindsym $mod+Shift+u move container to output VGA-0, focus output VGA-0
+bindsym $mod+Shift+i move container to output DVI-D-0, focus output DVI-D-0
+bindsym $mod+Shift+o move container to output HDMI-0, focus output HDMI-0
+
+# move focused workspace to output
+bindsym $mod+Mod1+u move workspace to output VGA-0
+bindsym $mod+Mod1+i move workspace to output DVI-D-0
+bindsym $mod+Mod1+o move workspace to output HDMI-0
 
 # Switch to previous/next workspace with super+[,]
 bindcode $mod+34 workspace prev
