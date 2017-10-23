@@ -28,12 +28,7 @@ exec_always --no-startup-id gnome-power-manager
 exec python ~/.config/polybar/weather
 
 # Polybar for desktop
-exec polybar DVI-D-0
-exec polybar HDMI-0
-exec polybar VGA-0
-
-# Polybar for laptop
-exec polybar LVDS1
+exec_always ~/.scripts/i3/polybar_start
 
 #------------------#
 #  Global Options  #
