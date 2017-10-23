@@ -2,4 +2,4 @@
 
 DESKTOP_NAME=$(echo '' | rofi -dmenu -location 7 -fuzzy -font 'Hack 6.5' -padding 10 -p 'Rename: ' -width 250 -i -lines 1 -color-normal '#eeeeee,#4d4d4d,#eeeeee,#eeeeee,#4d4d4d' -hide-scrollbar)
 
-i3-msg rename workspace to "$DESKTOP_NAME"
+i3-msg "rename workspace to \"$DESKTOP_NAME\""
