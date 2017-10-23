@@ -119,8 +119,10 @@ alias cs='cargo search'
 
 # Git
 alias ga='git add'
+alias gap='git add -p'
 alias gc='git commit -v'
-alias gca='git commit -v -a'
+alias gcp='git commit -vp'
+alias gca='git commit -va'
 alias gcm='git checkout master'
 alias gd='git diff'
 alias gst='git status'
