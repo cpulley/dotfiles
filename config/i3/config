@@ -20,6 +20,10 @@ exec dunst
 # Compositing! Woo!
 exec compton
 
+# Start gnome settings daemons (for i3-gnome)
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+exec_always --no-startup-id gnome-power-manager
+
 # Start weather-checking daemon
 exec python ~/.config/polybar/weather
 
