@@ -55,7 +55,7 @@ Xft.rgba: rgb
 ! ROFI Colors
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
-rofi.color-window:  #eeeeee, #fafafa, #eeeeee
+rofi.color-window:  #eeeeee, #ccccd0, #eeeeee
 rofi.color-normal:  #eeeeee, #4d4d4d, #eeeeee, #767676, #eeeeee
 rofi.color-active:  #6f7382, #ffffff, #6f7382, #6f7382, #fdf6e3
 rofi.color-urgent:  #eeeeee, #d7005f, #eeeeee, #4d4d4d, #d7005f
