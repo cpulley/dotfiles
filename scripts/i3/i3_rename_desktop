@@ -1,5 +1,5 @@
 #!/bin/bash
 
-DESKTOP_NAME=$(echo '' | rofi -dmenu -fuzzy -font 'M+1mn 12' -padding 10 -p 'Rename: ' -width 500 -i -lines -color-normal '#eeeeee,#4d4d4d,#eeeeee,#eeeeee,#4d4d4d' -hide-scrollbar)
+DESKTOP_NAME=$(rofi -dmenu -input /dev/null -font 'M+1mn 12' -p 'Rename: ' -theme ~/.config/rofi/default-nolines.rasi)
 
 i3-msg "rename workspace to \"$DESKTOP_NAME\""

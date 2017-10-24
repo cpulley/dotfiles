@@ -1,0 +1,40 @@
+/**
+ * Default Theme
+ * User: cpulley
+ */
+* {
+    background-color: #eeeeee;
+    border-color:     #ccccd0;
+    text-color:       #4d4d4c;
+    font:             "M+1mn 12";
+}
+
+configuration {
+}
+
+#window {
+    anchor:     center;
+    location:   center;
+    width:      500px;
+    padding:    10px;
+    border:     1px;
+}
+
+
+#listview {
+    layout:     vertical;
+    spacing:    5px;
+    lines:      7;
+}
+
+#entry {
+    expand:     true;
+}
+
+#element {
+    padding: 0px 2px;
+}
+#element selected {
+    background-color: #767676;
+    text-color:       #eeeeee;
+}

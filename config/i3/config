@@ -110,10 +110,10 @@ bindsym $mod+Return exec termite --exec tmux\ -2
 bindcode $mod+51 exec nemo
 
 # App launcher
-bindsym $mod+r exec j4-dmenu-desktop --no-generic --dmenu="rofi -dmenu -fuzzy -font 'M+1mn 12' -padding 10 -p 'Launch: ' -width 500 -i -lines 7 -hide-scrollbar"
+bindsym $mod+r exec j4-dmenu-desktop --no-generic --dmenu="rofi -dmenu -p 'Launch: ' -theme ~/.config/rofi/default"
 
 # Password Manager
-bindsym $mod+t exec $HOME/.scripts/rofipass -dmenu -fuzzy -font 'M+1mn 12' -padding 10 -p 'Pass: ' -width 500 -i -lines 7 -hide-scrollbar
+bindsym $mod+t exec $HOME/.scripts/rofipass -dmenu -p 'Pass: ' -theme ~/.config/rofi/default
 
 # Workspace Selector
 bindsym $mod+d exec $HOME/.scripts/i3/i3_name_desktop
@@ -172,7 +172,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+Shift+r reload
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec oblogout
+bindsym $mod+Shift+e exec ~/.scripts/rofilogout
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
