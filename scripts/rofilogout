@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+# Define options for menu
+menu="lock logout suspend restart shutdown"
+
+# Define commands for menu
+shutdown="systemctl poweroff"
+suspend="systemctl suspend"
+restart="systemctl reboot"
+logout="i3-msg exit"
+lock="light-locker-command -l"
+
+# Launch Rofi
+choice=$(echo -e "$menu" | rofi -dmenu -sep ' ' -p 'Logout Menu: ' -theme ~/.config/rofi/default.rasi)
+
+# Run variable selected at lines 7-11
+eval "\$$choice"
