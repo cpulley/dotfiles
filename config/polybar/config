@@ -51,8 +51,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 0
 
-font-0 = KnackNerdFont:pixelsize=7;1
-font-1 = Weather\ Icons:size=7;1
+font-0 = M+1mn:pixelsize=8;1
+font-1 = Weather\ Icons:size=8;1
 
 modules-left = i3 seperator xwindow
 modules-center = playerctl

@@ -72,21 +72,21 @@ global:
   content.default_encoding: iso-8859-1
   content.geolocation: false
   content.headers.accept_language: en-US,en
-  fonts.completion.category: bold 7pt monospace
-  fonts.completion.entry: 7pt monospace
-  fonts.debug_console: 7pt monospace
-  fonts.downloads: 7pt monospace
-  fonts.hints: bold 7.5pt monospace
-  fonts.keyhint: 7pt monospace
-  fonts.messages.error: 7pt monospace
-  fonts.messages.info: 7pt monospace
-  fonts.messages.warning: 7pt monospace
-  fonts.monospace: Hack, "xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono",
+  fonts.completion.category: bold 8pt M+1mn
+  fonts.completion.entry: 8pt M+1mn
+  fonts.debug_console: 8pt M+1mn
+  fonts.downloads: 8pt M+1mn
+  fonts.hints: bold 10pt M+1mn
+  fonts.keyhint: 8pt M+1mn
+  fonts.messages.error: 8pt M+1mn
+  fonts.messages.info: 8pt M+1mn
+  fonts.messages.warning: 8pt M+1mn
+  fonts.monospace: '"M+1mn", "xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono",
     Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation
-    Mono", monospace, Fixed, Consolas, Terminal
-  fonts.prompts: 7pt sans-serif
-  fonts.statusbar: 7pt monospace
-  fonts.tabs: 7pt monospace
+    Mono", monospace, Fixed, Consolas, Terminal'
+  fonts.prompts: 8pt M+2c
+  fonts.statusbar: 8pt M+1mn
+  fonts.tabs: 8pt M+1mn
   hints.auto_follow_timeout: 250
   hints.border: '1px solid #4d4d4c'
   hints.chars: asdfghjkl

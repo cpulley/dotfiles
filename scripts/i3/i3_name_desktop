@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DESKTOP_NAME=$(i3-msg -t get_workspaces | tr , '\n' | grep name | cut -d \" -f 4 | rofi -dmenu -font 'Hack 12' -padding 10 -p 'Desktop: ' -width 500 -i -lines 7 -hide-scrollbar)
+DESKTOP_NAME=$(i3-msg -t get_workspaces | tr , '\n' | grep name | cut -d \" -f 4 | rofi -dmenu -font 'M+1mn 12' -padding 10 -p 'Desktop: ' -width 500 -i -lines 7 -hide-scrollbar)
 
 if [ -z "$DESKTOP_NAME" ]; then
     exit 0
