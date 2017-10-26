@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DESKTOP_NAME=$(i3-msg -t get_workspaces | tr , '\n' | grep name | cut -d \" -f 4 | rofi -dmenu -fuzzy -p 'Desktop: ' -theme ~/.config/rofi/default.rasi)
+DESKTOP_NAME=$(i3-msg -t get_workspaces | tr , '\n' | grep name | cut -d \" -f 4 | rofi -dmenu -fuzzy -i -p 'Desktop: ' -theme ~/.config/rofi/default.rasi)
 
 if [ -z "$DESKTOP_NAME" ]; then
     exit 0

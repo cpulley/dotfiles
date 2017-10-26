@@ -110,10 +110,10 @@ bindsym $mod+Return exec termite --exec tmux\ -2
 bindcode $mod+51 exec nemo
 
 # App launcher
-bindsym $mod+r exec j4-dmenu-desktop --no-generic --dmenu="rofi -dmenu -fuzzy -p 'Launch: ' -theme ~/.config/rofi/default"
+bindsym $mod+r exec j4-dmenu-desktop --no-generic --dmenu="rofi -dmenu -fuzzy -i -p 'Launch: ' -theme ~/.config/rofi/default"
 
 # Password Manager
-bindsym $mod+t exec $HOME/.scripts/rofipass -dmenu -fuzzy -p 'Pass: ' -theme ~/.config/rofi/default
+bindsym $mod+t exec $HOME/.scripts/rofipass -dmenu -fuzzy -i -p 'Pass: ' -theme ~/.config/rofi/default
 
 # Workspace Selector
 bindsym $mod+d exec $HOME/.scripts/i3/i3_name_desktop
