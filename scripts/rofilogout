@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # Define options for menu
-menu="lock logout suspend restart shutdown"
+menu="Lock Logout Suspend Restart Shutdown"
 
 # Define commands for menu
 shutdown="systemctl poweroff"
