@@ -72,12 +72,12 @@ bindcode $mod+35 workspace next
 # class                 border  backgr. text    indicator child_border
 client.focused 		#767676 #767676 #eeeeee #767676   #767676
 client.focused_inactive #bcbcbc #bcbcbc #4d4d4c #bcbcbc   #bcbcbc
-client.unfocused        #bcbcbc #bcbcbc #999999 #bcbcbc   #bcbcbc
+client.unfocused        #bcbcbc #ccccd0 #999999 #ccccd0   #ccccd0
 client.urgent           #d7005f #d7005f #4d4d4c #d7005f   #d7005f
 
 
 # Font for window titles
-font pango:M+1mn 6
+font pango:M+1mn 8
 
 # Draw borders for windows that try to decorate themselves (nautilus, steam)
 for_window [class="^.*"] border pixel 2
