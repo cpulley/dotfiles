@@ -156,6 +156,5 @@ alias vim='nvim'
 # Use pacmatic as wrapper for pacaur
 function up(){
 	CURRENT_UID=$UID
-	pacman_program="pacaur" pacdiff_program="sudo pacdiff" pacmatic -Syu $@
-	sudo paccache -r -k 2
+	sudo pacman_program="sudo -u #$UID pacaur" pacmatic -Syu $@ && sudo paccache -r -k 2
 }
