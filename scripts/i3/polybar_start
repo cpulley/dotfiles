@@ -1,18 +1,48 @@
 #!/bin/bash
+CHASSIS="$(< /sys/class/dmi/id/chassis_type)"
+HOSTNAME="$(hostname)"
 
-# Kill all existing polybar instances
+# Kill any existing polybar instances
 killall polybar
 
-# Wait for i3 to finish reloading
-sleep 1
+# If hostname equals my personal desktop, use personalized settings
+if [[ $HOSTNAME == narayan ]]; then
+	MONITOR=DVI-D-0 polybar --reload i3bar-primary &
+	MONITOR=HDMI-0 polybar --reload i3bar-mini &
+	MONITOR=VGA-0 polybar --reload i3bar &
 
-# Restart polybar so it updates properly
-if type "xrandr"; then
-  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload i3bar &
-  done
+# If $CHASSIS appears to be a laptop, enable battery display
+# (See https://technet.microsoft.com/en-us/library/ee156537.aspx )
+elif [[ $CHASSIS -eq 8	]] || \  # Portable
+     [[ $CHASSIS -eq 9  ]] || \  # Laptop
+     [[ $CHASSIS -eq 10 ]] || \  # Notebook
+     [[ $CHASSIS -eq 11 ]] || \  # Hand Held
+     [[ $CHASSIS -eq 12 ]] || \  # Docking Station
+     [[ $CHASSIS -eq 14 ]]       # Sub Notebook
+then
+	if type "xrandr"; then
+		for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+			MONITOR=$m polybar --reload i3bar-laptop &
+		done
+		for m in $(xrandr --query | grep " connected" | grep -v " primary" | cut -d" " -f1); do
+			MONITOR=$m polybar --reload i3bar &
+		done
+
+	fi
+
+# If this is a different desktop, run default settings
+# on all available monitors
+elif type "xrandr"; then
+	for m in $(xrandr --query | grep " connected" | grep " primary" | cut -d" " -f1); do
+		MONITOR=$m polybar --reload i3bar-primary &
+	done
+	for m in $(xrandr --query | grep " connected" | grep -v " primary" | cut -d" " -f1); do
+		MONITOR=$m polybar --reload i3bar &
+	done
+
+# If xrandr doesn't work, just launch on default monitor
 else
-  polybar --reload example &
+	polybar --reload i3bar &
 fi
 
 exit 0
