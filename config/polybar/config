@@ -65,6 +65,29 @@ wm-restack = i3
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
+[bar/i3bar-primary]
+inherit = bar/i3bar
+
+tray-position = right
+tray-padding = 2
+
+[bar/i3bar-mini]
+inherit = bar/i3bar
+
+modules-left = i3 seperator xwindow
+modules-center = 
+modules-right = weather seperator memory seperator fileprefix filesystem seperator eth wlp0s20f0u12 seperator date seperator
+
+[bar/i3bar-laptop]
+inherit = bar/i3bar
+
+modules-left = i3 seperator xwindow
+modules-center = playerctl
+modules-right =  weather seperator memory seperator fileprefix filesystem seperator eth wlp0s2 seperator battery seperator date seperator
+
+tray-position = right
+tray-padding = 2
+
 ;--------------------------------------------------------;
 ; ____ ____  ______        ____  __ _                    ;
 ; | __ ) ___||  _ \ \      / /  \/  | |__   __ _ _ __    ;
@@ -103,6 +126,9 @@ modules-center = playerctl
 modules-right =  weather seperator memory seperator fileprefix filesystem seperator eth wlp0s20f0u12 seperator date seperator
 
 bottom = true
+
+tray-position = right
+tray-padding = 2
 
 wm-restack = bspwm
 
