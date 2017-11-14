@@ -109,6 +109,7 @@ global:
       <Ctrl-PgDown>: tab-next
       <Ctrl-PgUp>: tab-prev
       <Ctrl-Q>: quit
+      <Ctrl-R>: spawn -u readability
       <Ctrl-Return>: follow-selected -t
       <Ctrl-Shift-N>: open -p
       <Ctrl-Shift-T>: undo
@@ -336,6 +337,13 @@ global:
   fonts.prompts: 8pt M+2c
   fonts.statusbar: 8pt M+1mn
   fonts.tabs: 8pt M+1mn
+  fonts.web.family.cursive: Roboto Condensed
+  fonts.web.family.fantasy: Roboto Condensed
+  fonts.web.family.fixed: M+1mn
+  fonts.web.family.sans_serif: Roboto Condensed
+  fonts.web.family.serif: Roboto Condensed
+  fonts.web.family.standard: Roboto Condensed
+  fonts.web.size.default: 16
   hints.auto_follow_timeout: 250
   hints.border: '1px solid #4d4d4c'
   hints.chars: asdfghjkl
