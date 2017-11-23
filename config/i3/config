@@ -80,7 +80,9 @@ client.urgent           #d7005f #d7005f #4d4d4c #d7005f   #d7005f
 font pango:M+1mn 8
 
 # Draw borders for windows that try to decorate themselves (nautilus, steam)
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
+new_window pixel 1
+new_float normal
 
 # Only draw inner borders
 gaps inner 10
