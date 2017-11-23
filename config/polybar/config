@@ -84,7 +84,7 @@ inherit = bar/i3bar
 
 modules-left = i3 seperator xwindow
 modules-center = playerctl
-modules-right =  weather seperator memory seperator fileprefix filesystem seperator volume seperator eth wlp0s2 seperator battery seperator date seperator
+modules-right =  weather seperator memory seperator fileprefix filesystem seperator volume seperator eth wlp2s0 seperator battery seperator date seperator
 
 tray-position = right
 tray-padding = 2
