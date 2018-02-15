@@ -195,9 +195,6 @@ map <NUL> <C-u>
 " Airline "
 """""""""""
 
-" Use fancy fonts
-" let g:airline_powerline_fonts = 1
-
 " Use powerlineish theme
 let g:airline_theme='papercolor'
 
@@ -361,7 +358,7 @@ let g:vimwiki_list = [{'path': '~/.vimwiki', 'path_html': '~/.vimwiki/html'}]
 " Vinarise "
 """"""""""""
 
-let g:vinarise_enable_auto_detect = 1
+" let g:vinarise_enable_auto_detect = 1
 nmap <leader><leader>v :Vinarise<cr>
 
 """""""""""""""""
