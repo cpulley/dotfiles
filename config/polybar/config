@@ -51,9 +51,9 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 0
 
-font-0 = M+1mn:pixelsize=8;1
-font-1 = Weather\ Icons:size=8;1
-font-2 = M+1mn:pixelsize=2;0
+font-0 = "M+ 1mn Nerd Font:pixelsize=8;1"
+font-1 = "Weather Icons:size=8;1"
+font-2 = "M+ 1mn Nerd Font:pixelsize=2;0"
 
 modules-left = i3 seperator xwindow
 modules-center = playerctl
