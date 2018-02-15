@@ -1,5 +1,5 @@
 [options]
-font = M+1mn 8
+font = M+ 1mn Nerd Font 8
 scroll_on_output = false
 scroll_on_keystroke = true
 audible_bell = false
