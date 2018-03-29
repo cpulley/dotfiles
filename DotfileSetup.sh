@@ -65,7 +65,7 @@ echo "Moving folders from $XDG_CONFIG_HOME to $dbd.config"
 
 # Move files from XDG_CONFIG_HOME to $dbd/.config
 # This is probably terrible in some way I don't understand.
-for FILENAME in $(ls "$dfp/config")
+for FILENAME in $dfp/config/*
 do
   if [ -h "$XDG_CONFIG_HOME/$FILENAME" ]; then
     echo "Removing symlink $XDG_CONFIG_HOME/$FILENAME"
@@ -99,7 +99,7 @@ done
 
 mkdir -p "$XDG_CONFIG_HOME"
 
-for FILENAME in $(ls "$dfp/config")
+for FILENAME in $dfp/config/*
 do
   echo "Linking config/$FILENAME to $XDG_CONFIG_HOME/$FILENAME"
   ln -s "$dfp/config/$FILENAME" "$XDG_CONFIG_HOME/$FILENAME"
