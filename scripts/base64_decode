@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# This script exists only to make this command work in qutebrowser.
+# Is there a more elegant way to do this? Undoubtedly, but it'll take too long. :^)
+
+xclip -o -selection clipboard | base64 -d | xclip -selection clipboard
