@@ -37,6 +37,9 @@ exec_always ~/.scripts/i3/polybar_start
 # Set $mod to super
 set $mod Mod4
 
+# Disable some mouse/focus interactions
+focus_follows_mouse no
+
 #---------------------#
 #  Workspace Options  #
 #---------------------#
@@ -71,8 +74,8 @@ bindcode $mod+35 workspace next
 
 # class                 border  backgr. text    indicator child_border
 client.focused 		#767676 #767676 #eeeeee #767676   #767676
-client.focused_inactive #eeeeee #eeeeee #4d4d4c #eeeeee   #eeeeee
-client.unfocused        #eeeeee #eeeeee #999999 #eeeeee   #eeeeee
+client.focused_inactive #aaaaaa #aaaaaa #4d4d4c #cccccc   #cccccc
+client.unfocused        #cccccc #cccccc #4d4d4c #bbbbbb   #bbbbbb
 client.urgent           #d7005f #d7005f #4d4d4c #d7005f   #d7005f
 
 
