@@ -22,12 +22,11 @@ export PROMPT_GEOMETRY_COLORIZE_ROOT=true
 # /____|_|   |_|\__,_|\__, | #
 #                     |___/  #
 ##############################
-#
+
 source "$HOME/.zplug/init.zsh"
 
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'          # Let zplug update itself!
 
-zplug "horosgrisa/autoenv"                                  #
 zplug "b4b4r07/enhancd",                        use:init.sh # Fuzzy cd
 zplug "fabiokiatkowski/exercism.plugin.zsh"                 # Excercism.io tool--Programming challenges
 zplug "zdharma/fast-syntax-highlighting",       defer:2     # Faster and more colorful highlighting
@@ -87,7 +86,7 @@ export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,bold'
 PATH="$PATH:$HOME/.scripts/"
 
 # Use vim instead of nano
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # Keep history a-la oh-my-zsh
 setopt inc_append_history
@@ -156,5 +155,5 @@ alias vim='nvim'
 # Use pacmatic as wrapper for pacaur
 function up(){
 	CURRENT_UID=$UID
-	sudo pacman_program="sudo -u #$UID pacaur" pacmatic -Syu $@ && sudo paccache -r -k 2
+	sudo pacman_program="sudo -u #$UID pikaur" DIFFPROG="nvim -d" pacmatic -Syu $@ && sudo paccache -r -k 2
 }
