@@ -1,21 +1,27 @@
 #!/bin/bash
 
+# If no arguments, try to install all valid looking packages in current directory
 if [ $# -eq 0 ]; then
   if [ "$(ls ./*.pkg.tar.xz)" ]; then
     echo "Preparing to install:"
-    ls -1 ./*.pkg.tar.xz
-    if sudo pacman -U ./*.pkg.tar.xz; then
-      cp ./*.pkg.tar.xz ~/.build/.cache/
+    # Copy to cache directory if package installs properly
+    if pacaur -Qp ./*.pkg.tar.xz; then
+      sudo pacman -U ./*.pkg.tar.xz
+      sudo cp ./*.pkg.tar.xz /var/cache/pacman/pkg/
     fi
   else
     echo "No valid packages found!"
   fi
 else
+  # If there are arguments, try to install them.
   for TARGET in "$@"
   do
+    # Make sure the package appears to be a package.
+    # Todo: packages aren't required to be tar.xz files, find a better way to verify that packages are valid.
     if [ -f "$TARGET" ] && [[ "$TARGET" = *.pkg.tar.xz ]]; then
-      if sudo pacman -U "$TARGET"; then
-        cp "$TARGET" ~/.build/.cache/
+      if pacman -Qp "$TARGET"; then
+        sudo pacman -U "$TARGET"
+        sudo cp "$TARGET" /var/cache/pacman/pkg/
       fi
     else
       echo "$TARGET is not a valid package!"
