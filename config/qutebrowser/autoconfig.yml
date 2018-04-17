@@ -3,7 +3,21 @@
 
 config_version: 1
 global:
+  aliases:
+    q: quit
+    w: session-save
+    wq: quit --save
   backend: webengine
+  bindings.commands:
+    normal:
+      sm: spawn smplayer -fullscreen -close-at-end {url}
+      sfm: hint links spawn smplayer -fullscreen -close-at-end {hint-url}
+      sbd: spawn /home/cpulley/.scripts/base64_decode
+      sf: null
+      sk: null
+      sl: null
+      ss: null
+      yf: hint links yank
   bindings.default:
     caret:
       $: move-to-end-of-line
@@ -105,6 +119,7 @@ global:
       <Ctrl-D>: scroll-page 0 0.5
       <Ctrl-F5>: reload -f
       <Ctrl-F>: scroll-page 0 1
+      <Ctrl-I>: enter-mode passthrough
       <Ctrl-N>: open -w
       <Ctrl-PgDown>: tab-next
       <Ctrl-PgUp>: tab-prev
@@ -117,7 +132,6 @@ global:
       <Ctrl-T>: open -t
       <Ctrl-Tab>: tab-focus last
       <Ctrl-U>: scroll-page 0 -0.5
-      <Ctrl-V>: enter-mode passthrough
       <Ctrl-W>: tab-close
       <Ctrl-X>: navigate decrement
       <Ctrl-^>: tab-focus last
@@ -227,7 +241,7 @@ global:
       '{{': navigate prev -t
       '}}': navigate next -t
     passthrough:
-      <Ctrl-V>: leave-mode
+      <Ctrl-I>: leave-mode
     prompt:
       <Alt-B>: rl-backward-word
       <Alt-Backspace>: rl-backward-kill-word
@@ -257,14 +271,14 @@ global:
   colors.completion.category.bg: '#eeeeee'
   colors.completion.category.border.bottom: black
   colors.completion.category.border.top: black
-  colors.completion.category.fg: '#4d4d4c'
+  colors.completion.category.fg: black
   colors.completion.even.bg: '#eeeeee'
   colors.completion.fg: '#4d4d4c'
   colors.completion.item.selected.bg: '#fafaff'
   colors.completion.item.selected.border.bottom: '#4d4d4c'
   colors.completion.item.selected.border.top: '#4d4d4c'
   colors.completion.item.selected.fg: black
-  colors.completion.match.fg: '#4d4d4c'
+  colors.completion.match.fg: black
   colors.completion.odd.bg: '#eeeeee'
   colors.completion.scrollbar.bg: '#eeeeee'
   colors.completion.scrollbar.fg: '#4d4d4c'
@@ -278,68 +292,95 @@ global:
   colors.downloads.system.bg: hsl
   colors.downloads.system.fg: hsl
   colors.hints.bg: '#eeeeee'
-  colors.hints.fg: '#4d4d4c'
+  colors.hints.fg: black
   colors.hints.match.fg: black
   colors.keyhint.bg: rgba(0, 0, 0, 80%)
   colors.keyhint.fg: '#FFFFCC'
   colors.keyhint.suffix.fg: '#FFFF00'
+  colors.messages.error.bg: red
+  colors.messages.error.border: '#bb0000'
+  colors.messages.error.fg: white
+  colors.messages.info.bg: black
+  colors.messages.info.border: '#333333'
+  colors.messages.info.fg: white
+  colors.messages.warning.bg: darkorange
+  colors.messages.warning.border: '#d47300'
+  colors.messages.warning.fg: white
+  colors.prompts.bg: '#444444'
+  colors.prompts.border: 1px solid gray
+  colors.prompts.fg: white
+  colors.prompts.selected.bg: grey
   colors.statusbar.caret.bg: purple
   colors.statusbar.caret.fg: white
+  colors.statusbar.caret.selection.bg: '#a12dff'
+  colors.statusbar.caret.selection.fg: white
   colors.statusbar.command.bg: '#eeeeee'
-  colors.statusbar.command.fg: '#4d4d4c'
+  colors.statusbar.command.fg: black
   colors.statusbar.command.private.bg: '#cdcdcd'
-  colors.statusbar.command.private.fg: '#4d4d4c'
+  colors.statusbar.command.private.fg: black
   colors.statusbar.insert.bg: '#d0ffd0'
   colors.statusbar.insert.fg: black
   colors.statusbar.normal.bg: '#eeeeee'
-  colors.statusbar.normal.fg: '#4d4d4c'
+  colors.statusbar.normal.fg: black
+  colors.statusbar.passthrough.bg: darkblue
+  colors.statusbar.passthrough.fg: white
   colors.statusbar.private.bg: '#cdcdcd'
-  colors.statusbar.private.fg: '#4d4d4c'
+  colors.statusbar.private.fg: black
+  colors.statusbar.progress.bg: white
   colors.statusbar.url.error.fg: '#aa884c'
-  colors.statusbar.url.fg: '#4d4d4c'
+  colors.statusbar.url.fg: black
   colors.statusbar.url.hover.fg: '#4c4caa'
-  colors.statusbar.url.success.http.fg: '#4d4d4c'
+  colors.statusbar.url.success.http.fg: black
   colors.statusbar.url.success.https.fg: '#4caa4c'
   colors.statusbar.url.warn.fg: '#aaaa4c'
   colors.tabs.bar.bg: '#eeeeee'
   colors.tabs.even.bg: '#eeeeee'
-  colors.tabs.even.fg: '#4d4d4c'
+  colors.tabs.even.fg: '#333333'
   colors.tabs.indicator.error: '#ff0000'
   colors.tabs.indicator.start: '#eeeeee'
   colors.tabs.indicator.stop: '#00aa00'
   colors.tabs.indicator.system: rgb
   colors.tabs.odd.bg: '#eeeeee'
-  colors.tabs.odd.fg: '#4d4d4c'
+  colors.tabs.odd.fg: '#333333'
   colors.tabs.selected.even.bg: '#fafaff'
-  colors.tabs.selected.even.fg: '#4d4d4c'
+  colors.tabs.selected.even.fg: '#333333'
   colors.tabs.selected.odd.bg: '#fafaff'
-  colors.tabs.selected.odd.fg: '#4d4d4c'
+  colors.tabs.selected.odd.fg: '#333333'
   colors.webpage.bg: white
   completion.height: 30%
   completion.scrollbar.width: 12
   completion.show: always
   completion.shrink: true
+  confirm_quit:
+  - never
   content.default_encoding: iso-8859-1
   content.geolocation: false
   content.headers.accept_language: en-US,en
-  fonts.completion.category: 8pt M+1mn
-  fonts.completion.entry: 8pt M+1mn
-  fonts.debug_console: 8pt M+1mn
-  fonts.downloads: 8pt M+1mn
-  fonts.hints: 10pt M+1mn
-  fonts.keyhint: 8pt M+1mn
-  fonts.messages.error: 8pt M+1mn
-  fonts.messages.info: 8pt M+1mn
-  fonts.messages.warning: 8pt M+1mn
-  fonts.monospace: '"M+1mn", "xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono",
+  content.plugins: false
+  content.print_element_backgrounds: true
+  downloads.remove_finished: 60000
+  editor.command:
+  - termite
+  - --exec
+  - nvim {}
+  fonts.completion.category: 7.5pt "M+ 1mn"
+  fonts.completion.entry: 7.5pt "M+ 1mn"
+  fonts.debug_console: 7.5pt "M+ 1mn"
+  fonts.downloads: 7.5pt "M+ 1mn"
+  fonts.hints: 10pt "M+ 1mn"
+  fonts.keyhint: 8pt "M+ 1mn"
+  fonts.messages.error: 7.5pt "M+ 1mn"
+  fonts.messages.info: 7.5pt "M+ 1mn"
+  fonts.messages.warning: 7.5pt "M+ 1mn"
+  fonts.monospace: '"M+ 1mn", "xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono",
     Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation
     Mono", monospace, Fixed, Consolas, Terminal'
-  fonts.prompts: 8pt M+2c
-  fonts.statusbar: 8pt M+1mn
-  fonts.tabs: 8pt M+1mn
+  fonts.prompts: 7.5pt "M+ 1mn"
+  fonts.statusbar: 7.5pt "M+ 1mn"
+  fonts.tabs: 7.5pt "M+ 1mn"
   fonts.web.family.cursive: Roboto Condensed
   fonts.web.family.fantasy: Roboto Condensed
-  fonts.web.family.fixed: M+1mn
+  fonts.web.family.fixed: M+ 1mn
   fonts.web.family.sans_serif: Roboto Condensed
   fonts.web.family.serif: Roboto Condensed
   fonts.web.family.standard: Roboto Condensed
@@ -373,16 +414,15 @@ global:
   input.links_included_in_focus_chain: true
   input.partial_timeout: 5000
   input.rocker_gestures: false
-  input.spatial_navigation: false
+  input.spatial_navigation: true
   keyhint.blacklist: null
   keyhint.delay: 500
   messages.timeout: 2000
-  messages.unfocused: false
   prompt.filebrowser: true
   prompt.radius: 8
   qt.args: null
   scrolling.bar: false
-  scrolling.smooth: false
+  scrolling.smooth: true
   spellcheck.languages: null
   statusbar.hide: false
   statusbar.padding:
@@ -393,13 +433,15 @@ global:
   statusbar.position: bottom
   tabs.background: true
   tabs.close_mouse_button: middle
+  tabs.close_mouse_button_on_bar: new-tab
   tabs.favicons.scale: 1.2
   tabs.favicons.show: true
-  tabs.indicator_padding:
+  tabs.indicator.padding:
     bottom: 0
     left: 2
-    right: 2
+    right: 3
     top: 0
+  tabs.indicator.width: 2
   tabs.last_close: close
   tabs.mousewheel_switching: true
   tabs.new_position.related: next
@@ -415,10 +457,9 @@ global:
   tabs.show_switching_delay: 800
   tabs.tabs_are_windows: false
   tabs.title.alignment: left
-  tabs.title.format: '{index}: {title}'
+  tabs.title.format: ' {title}'
   tabs.title.format_pinned: '{index}'
-  tabs.width.bar: 200
-  tabs.width.indicator: 2
+  tabs.width: 170
   tabs.wrap: true
   url.auto_search: naive
   url.default_page: https://start.duckduckgo.com/
