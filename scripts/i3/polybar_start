@@ -13,12 +13,18 @@ if [[ $HOSTNAME == narayan ]]; then
 
 # If $CHASSIS appears to be a laptop, enable battery display
 # (See https://technet.microsoft.com/en-us/library/ee156537.aspx )
-elif [[ $CHASSIS -eq 8	]] || \  # Portable
-     [[ $CHASSIS -eq 9  ]] || \  # Laptop
-     [[ $CHASSIS -eq 10 ]] || \  # Notebook
-     [[ $CHASSIS -eq 11 ]] || \  # Hand Held
-     [[ $CHASSIS -eq 12 ]] || \  # Docking Station
-     [[ $CHASSIS -eq 14 ]]       # Sub Notebook
+#  8 - Portable
+#  9 - Laptop  
+# 10 - Notebook  
+# 11 - Hand Held  
+# 12 - Docking Station  
+# 14 - Sub Notebook
+elif [[ $CHASSIS -eq 8	]] || \
+     [[ $CHASSIS -eq 9  ]] || \
+     [[ $CHASSIS -eq 10 ]] || \
+     [[ $CHASSIS -eq 11 ]] || \
+     [[ $CHASSIS -eq 12 ]] || \
+     [[ $CHASSIS -eq 14 ]]     
 then
 	if type "xrandr"; then
 		for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
