@@ -8,8 +8,8 @@ killall polybar
 # If hostname equals my personal desktop, use personalized settings
 if [[ $HOSTNAME == narayan ]]; then
 	MONITOR=DVI-D-0 polybar --reload i3bar-primary &
-	MONITOR=HDMI-0 polybar --reload i3bar-mini &
-	MONITOR=VGA-0 polybar --reload i3bar &
+	MONITOR=HDMI-0 polybar --reload i3bar &
+	MONITOR=VGA-0 polybar --reload i3bar-mini &
 
 # If $CHASSIS appears to be a laptop, enable battery display
 # (See https://technet.microsoft.com/en-us/library/ee156537.aspx )
