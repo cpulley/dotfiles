@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Set up colors
+RESET="$(tput sgr0)"
+RED="$(tput setaf 1 && tput bold)"
+GREEN=$(tput setaf 2 && tput bold)
+BLUE="$(tput setaf 4)"
+BOLD="$(tput bold)"
+
 ### This section is stolen from lytedev's setup script!
 ### If interested, you can find their dotfiles at github.com/lytedev/dotfiles
 
@@ -45,42 +52,42 @@ fi
 
 mkdir -p $dbd/.config
 
-echo "Moving files from $HOME to $dbd..."
+echo $GREEN"Moving files from "$RESET"$HOME"$GREEN" to "$RESET"$dbd..."
 
 # Move files and folders, ignoring $dfp/config and the setup
 # to newly created $dbd
 for FILENAME in $(ls "$dfp" | grep -v config | grep -v Dotfile)
 do
   if [ -h "$HOME/.$FILENAME" ]; then
-    echo "Removing symlink $HOME/.$FILENAME"
+    echo $RED"Removing symlink "$RESET"$HOME/.$FILENAME -> "$BLUE"$(readlink $HOME/.$FILENAME)"$RESET
     rm "$HOME/.$FILENAME"
   elif [ -a "$HOME/.$FILENAME" ]; then
-    echo "Moving .$FILENAME"
+    echo $GREEN"Moving"$RESET" $HOME/.$FILENAME"
     mv "$HOME/.$FILENAME" "$dbd"
   fi
 done
 
 echo
-echo "Moving folders from $XDG_CONFIG_HOME to $dbd.config"
+echo $GREEN"Moving folders from "$RESET"$XDG_CONFIG_HOME"$GREEN" to "$RESET"$dbd.config"
 
 # Move files from XDG_CONFIG_HOME to $dbd/.config
 # This is probably terrible in some way I don't understand.
-for FILENAME in $dfp/config/*
+for FILENAME in $(ls $dfp/config/)
 do
   if [ -h "$XDG_CONFIG_HOME/$FILENAME" ]; then
-    echo "Removing symlink $XDG_CONFIG_HOME/$FILENAME"
+    echo $RED"Removing symlink "$RESET"$XDG_CONFIG_HOME/$FILENAME -> "$BLUE"$(readlink $XDG_CONFIG_HOME/$FILENAME)"$RESET
     rm "$XDG_CONFIG_HOME/$FILENAME"
   elif [ -a "$XDG_CONFIG_HOME/$FILENAME" ]; then
-    echo "Moving $XDG_CONFIG_HOME/$FILENAME"
+    echo $GREEN"Moving "$RESET"$XDG_CONFIG_HOME/$FILENAME"
     mv "$XDG_CONFIG_HOME/$FILENAME" $dbd/.config/
   fi
 done
 
 # If nothing got copied to the backup dir, go ahead and delete it.
 if [ "$(du -B 1 $dbd | cut -f 1 | tail -n 1)" -le 8192 ]; then
-  rm -rf $dbd
   echo
   echo "No backups made! Cleaning up ~/dotfile-backup..."
+  rm -rf $dbd
 fi
 
 # Same, but for the whole backup dir
@@ -89,19 +96,19 @@ if [ "$(du -B 1 ~/dotfile-backup | cut -f 1 | tail -n 1)" -le 8192 ]; then
 fi
 
 echo
-echo "Linking..."
+echo "Creating symlinks..."
 
 for FILENAME in $(ls "$dfp" | grep -v config | grep -v Dotfile)
 do
-  echo "Linking $FILENAME to $HOME/.$FILENAME"
+  echo $BLUE$BOLD"Linking"$RESET" $HOME/.$FILENAME -> "$BLUE"$dfp/$FILENAME"$RESET
   ln -s "$dfp/$FILENAME" "$HOME/.$FILENAME"
 done
 
 mkdir -p "$XDG_CONFIG_HOME"
 
-for FILENAME in $dfp/config/*
+for FILENAME in $(ls config)
 do
-  echo "Linking config/$FILENAME to $XDG_CONFIG_HOME/$FILENAME"
+  echo $BLUE$BOLD"Linking"$RESET" $XDG_CONFIG_HOME/$FILENAME -> "$BLUE"$dfp/config/$FILENAME "$RESET
   ln -s "$dfp/config/$FILENAME" "$XDG_CONFIG_HOME/$FILENAME"
 done
 
