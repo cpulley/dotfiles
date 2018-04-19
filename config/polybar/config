@@ -326,7 +326,7 @@ type = internal/network
 interface = wlp0s20f0u12
 interval = 3.0
 
-label-connected =  %essid
+label-connected =  %essid%
 
 [module/wlp2s0]
 type = internal/network
