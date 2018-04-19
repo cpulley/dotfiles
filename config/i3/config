@@ -48,6 +48,7 @@ focus_follows_mouse no
 workspace VGA-0 output VGA-0
 workspace DVI-D-0 output DVI-D-0
 workspace HDMI-0 output HDMI-0
+workspace LVDS1 output LVDS1
 
 # Keybinds for switching to outputs
 bindsym $mod+u focus output VGA-0
