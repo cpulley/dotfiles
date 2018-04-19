@@ -57,7 +57,7 @@ font-2 = "M+ 1mn Nerd Font:pixelsize=2;0"
 
 modules-left = i3 seperator xwindow
 modules-center = playerctl
-modules-right =  weather seperator memory seperator fileprefix filesystem seperator volume seperator eth wlp0s20f0u12 seperator date seperator
+modules-right =  weather seperator memory seperator fileprefix filesystem-home seperator volume seperator eth wlp0s20f0u12 seperator date seperator
 
 bottom = false
 
@@ -77,7 +77,7 @@ inherit = bar/i3bar
 
 modules-left = i3 seperator xwindow
 modules-center = 
-modules-right = weather seperator memory seperator fileprefix filesystem seperator volume seperator eth wlp0s20f0u12 seperator date seperator
+modules-right = weather seperator memory seperator fileprefix filesystem-home seperator volume seperator eth wlp0s20f0u12 seperator date seperator
 
 [bar/i3bar-laptop]
 inherit = bar/i3bar
@@ -289,7 +289,7 @@ type = custom/text
 content = 
 content-padding = 0
 
-[module/filesystem]
+[module/filesystem-home]
 type = internal/fs
 interval = 25
 
@@ -302,19 +302,31 @@ label-mounted = %free%
 label-unmounted =
 label-unmounted-foreground = ${colors.foreground-alt}
 
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+mount-1 = /home
+
+label-mounted = %free%
+
+label-unmounted =
+label-unmounted-foreground = ${colors.foreground-alt}
+
 [module/eth]
 type = internal/network
 interface = enp4s0
 interval = 3.0
 
-label-connected = 
+label-connected =  
 
 [module/wlp0s20f0u12]
 type = internal/network
 interface = wlp0s20f0u12
 interval = 3.0
 
-label-connected =  %essid%
+label-connected =  %essid
 
 [module/wlp2s0]
 type = internal/network
