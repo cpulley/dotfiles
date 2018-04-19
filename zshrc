@@ -152,8 +152,8 @@ alias pacrmorphans='sudo pacman -Rs $(pacman -Qtdq)'
 # Replace vim with nvim (muscle memory is hard to fix)
 alias vim='nvim'
 
-# Use pacmatic as wrapper for pacaur
+# Use pacmatic as wrapper for aurman
 function up(){
 	CURRENT_UID=$UID
-	sudo pacman_program="sudo -u #$UID pikaur" DIFFPROG="nvim -d" pacmatic -Syu $@ && sudo paccache -r -k 2
+	sudo pacman_program="sudo -u #$UID aurman" DIFFPROG="nvim -d" pacmatic -Syu $@ && sudo paccache -r -k 2
 }
