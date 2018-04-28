@@ -85,8 +85,9 @@ export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,bold'
 # Add ~/.scripts/ to path
 PATH="$PATH:$HOME/.scripts/"
 
-# Use vim instead of nano
+# Setup pager and vim
 export EDITOR="nvim"
+export PAGER="less"
 
 # Keep history a-la oh-my-zsh
 setopt inc_append_history
@@ -99,6 +100,26 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --color=bg+:254,fg+:238,hl+:26,h
 
 # Make hitting escape more responsive with vimode
 export KEYTIMEOUT=1
+
+# Less tweaks
+export LESS='-i -z-8 -G -N -M -R -PM %f?B (%B bytes).?lb │ Lines %lt-%lb.?bb │ Bytes %bt-%bb?pb │ %pb\%. ';
+export LESSCHARSET='utf-8';
+
+# Try to use pygmentize based on file name
+# If it fails, render normally and don't print an error
+export LESSOPEN='| pygmentize -f terminal %s 2>/dev/null'
+
+# Don't use line numbers for man, as it breaks long lines
+export MANPAGER='less -nm'
+
+# Colorize less's output
+export LESS_TERMCAP_mb=$'\E[01;34m';
+export LESS_TERMCAP_md=$'\E[01;37m';
+export LESS_TERMCAP_me=$'\E[0m';
+export LESS_TERMCAP_so=$'\E[01;48;5;254m PAGER \E[00;48;5;24;38;5;0m';
+export LESS_TERMCAP_se=$'\E[0m';
+export LESS_TERMCAP_us=$'\E[01;34m';
+export LESS_TERMCAP_ue=$'\E[0m';
 
 #####################################
 #     _    _ _                      #
