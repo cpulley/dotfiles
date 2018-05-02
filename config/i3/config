@@ -94,11 +94,21 @@ for_window [class="^.*"] border pixel 2
 #----------------------------#
 #  Program-specific Options  #
 #----------------------------#
+
 for_window [title="The Void" class="Game.exe"] floating disable, border none, fullscreen enable
 for_window [title="Pathologic" class="Game.exe"] floating disable, border none, fullscreen enable
 for_window [title="OpenMW" class="openmw"] floating disable, border none, fullscreen enable
 for_window [title="Openbox Logout"] floating disable, border none, fullscreen enable
 for_window [title="Minecraft"] floating enable, border none 
+
+# Specific workspaces
+assign [class="discord"] → Discord
+assign [class="Steam"] → Steam
+assign [class="battle.net"] → Battle.net
+
+# Spotify is dumb and violates spec
+assign [class="Spotify"] → Spotify
+for_window [class="Spotify"] move to workspace Spotify
 
 #---------------#
 #  Keybindings  #
