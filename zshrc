@@ -164,14 +164,31 @@ alias lrt='ls -1Fcrt'
 alias ls='ls --color --time-style long-iso'
 alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
 
+# Replace vim with nvim (muscle memory is hard to fix)
+alias vim='nvim'
+
 # Pacman
 alias pacls='pacman -Qi | grep "Name\|Description" | cut -d \: -f 2 | awk " {print;} NR % 2 == 0 { print "\n"; }"'
 alias paclsexplicit='pacman -Qe | pacman -Qi | grep "Name\|Description" | cut -d \: -f 2 | awk " {print;} NR % 2 == 0 { print "\n"; }" | less'
-alias paclsorphans='sudo pacman -Qdt  | pacman -Qi | grep "Name\|Description" | cut -d \: -f 2 | awk " {print;} NR % 2 == 0 { print "\n"; }"'
-alias pacrmorphans='sudo pacman -Rs $(pacman -Qtdq)'
+alias reflect='$HOME/.scripts/reflect'
 
-# Replace vim with nvim (muscle memory is hard to fix)
-alias vim='nvim'
+function pacrmorphans(){
+	if [[ -n $(pacman -Qdt) ]]
+	then
+		sudo pacman -Rs $(pacman -Qtdq) 2>/dev/null
+	else
+		echo No orphaned files found!
+	fi
+}
+
+function paclsorphans(){
+	if [[ -n $(pacman -Qdt) ]]
+	then
+		pacman -Qdt  | pacman -Qi | grep "Name\|Description" | cut -d \: -f 2 | awk " {print;} NR % 2 == 0 { print "\n"; }"
+	else
+		echo No orphaned files found!
+	fi
+}
 
 # Use pacmatic as wrapper for aurman
 function up(){
