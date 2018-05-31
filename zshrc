@@ -193,5 +193,5 @@ function paclsorphans(){
 # Use pacmatic as wrapper for aurman
 function up(){
 	CURRENT_UID=$UID
-	sudo pacman_program="sudo -u #$UID aurman" DIFFPROG="nvim -d" pacmatic -Syu $@ && sudo paccache -r -k 2
+	sudo pacman_program="sudo -u #$UID aurman --do_everything" DIFFPROG="nvim -d" pacmatic -Syu $@ && sudo paccache -r -k 2
 }
