@@ -88,6 +88,11 @@ default_border pixel 2
 default_floating_border normal
 hide_edge_borders smart
 
+# Define gaps settings (comment this section out if not using i3-gaps)
+gaps inner 8
+gaps outer 2
+smart_gaps on
+
 # Draw borders for windows that try to decorate themselves (nautilus, steam)
 for_window [class="^.*"] border pixel 2
 
@@ -118,7 +123,7 @@ for_window [class="Spotify"] move to workspace Spotify
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite --exec tmux\ -2
+bindsym $mod+Return exec alacritty
 
 # start file manager when you press $mod+\
 bindcode $mod+51 exec nemo
