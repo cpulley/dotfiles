@@ -313,11 +313,13 @@ settings:
   qt.force_software_rendering:
     global: true
   scrolling.bar:
-    global: false
+    global: true
   scrolling.smooth:
     global: true
   spellcheck.languages:
-    global: null
+    global:
+    - en-US
+    - en-GB
   statusbar.hide:
     global: false
   statusbar.padding:
@@ -337,7 +339,7 @@ settings:
   tabs.favicons.scale:
     global: 1.2
   tabs.favicons.show:
-    global: true
+    global: always
   tabs.indicator.padding:
     global:
       bottom: 0
@@ -401,7 +403,7 @@ settings:
     - utm_campaign
     - utm_term
     - utm_content
-  window.hide_wayland_decoration:
+  window.hide_decoration:
     global: false
   window.title_format:
     global: '{perc}{title}{title_sep}qutebrowser'
