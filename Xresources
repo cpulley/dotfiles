@@ -68,10 +68,13 @@ URxvt.borderless: true
 URxvt.scrollBar: false
 URxvt.scrollTryOutput: false
 URxvt.scrollTtyKeypress: false
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+URxvt.secondaryWheel: 1
 URxvt.urgentOnBell: true
 URxvt.visualBell: false
-URxvt.font: xft:Knack Nerd Font:antialias=true:pixelsize=9
-URxvt.letterSpace: 0
+URxvt.font: xft:mplus Nerd Font:antialias=true:pixelsize=11
+URxvt.letterSpace: -1
 
 ! ------------------------------------------------------------------------------
 ! Cursor
