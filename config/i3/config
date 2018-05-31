@@ -123,7 +123,7 @@ for_window [class="Spotify"] move to workspace Spotify
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec alacritty -e tmux
 
 # start file manager when you press $mod+\
 bindcode $mod+51 exec nemo
